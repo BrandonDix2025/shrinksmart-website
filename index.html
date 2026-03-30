@@ -1,0 +1,3202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShrinkSmart — Every Loss Has a Pattern. We Find Yours.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --ink: #0B1724;
+            --ink-mid: #1A2E42;
+            --ink-soft: #243B52;
+            --blue: #2D9CDB;
+            --blue-lt: #5BB8F0;
+            --blue-dim: #1A5F8A;
+            --ice: #F0F4F8;
+            --ice-mid: #E2EBF3;
+            --white: #FFFFFF;
+            --amber: #C8860A;
+            --amber-lt: #F0A824;
+            --red: #8B2020;
+            --green: #1A9E5C;
+            --txt-dark: #0B1724;
+            --txt-mid: #3D5166;
+            --txt-lt: #6B8299;
+            --border: rgba(30, 45, 61, .1);
+            --shadow-sm: 0 2px 8px rgba(11, 23, 36, .08);
+            --shadow-md: 0 8px 32px rgba(11, 23, 36, .12);
+            --shadow-lg: 0 24px 64px rgba(11, 23, 36, .2)
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--txt-dark);
+            background: var(--white);
+            overflow-x: hidden;
+            line-height: 1.6
+        }
+
+        img {
+            max-width: 100%;
+            display: block
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Sora', sans-serif;
+            line-height: 1.15
+        }
+
+        h1 {
+            font-size: clamp(2.6rem, 5vw, 4.4rem);
+            font-weight: 800;
+            letter-spacing: -.03em
+        }
+
+        h2 {
+            font-size: clamp(1.9rem, 3.5vw, 2.9rem);
+            font-weight: 700;
+            letter-spacing: -.02em
+        }
+
+        h3 {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            font-weight: 600
+        }
+
+        p {
+            font-size: 1.05rem;
+            color: var(--txt-mid);
+            line-height: 1.75
+        }
+
+        .container {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 2rem
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            padding: .9rem 2.1rem;
+            border-radius: 7px;
+            font-family: 'Sora', sans-serif;
+            font-weight: 600;
+            font-size: .95rem;
+            cursor: pointer;
+            border: none;
+            transition: all .22s ease;
+            letter-spacing: .01em;
+            white-space: nowrap
+        }
+
+        .btn-primary {
+            background: var(--blue);
+            color: #fff;
+            box-shadow: 0 4px 24px rgba(45, 156, 219, .4)
+        }
+
+        .btn-primary:hover {
+            background: var(--blue-lt);
+            transform: translateY(-2px)
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #fff;
+            border: 2px solid rgba(255, 255, 255, .35)
+        }
+
+        .btn-outline:hover {
+            border-color: #fff;
+            background: rgba(255, 255, 255, .07);
+            transform: translateY(-2px)
+        }
+
+        .btn-dark {
+            background: var(--ink-mid);
+            color: #fff
+        }
+
+        .btn-dark:hover {
+            background: var(--ink);
+            transform: translateY(-2px)
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--blue);
+            border: 2px solid var(--blue)
+        }
+
+        .btn-ghost:hover {
+            background: var(--blue);
+            color: #fff;
+            transform: translateY(-2px)
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(11, 23, 36, .97);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(45, 156, 219, .12);
+            transition: box-shadow .3s
+        }
+
+        .nav-inner {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: .75rem
+        }
+
+        .nav-logo-mark {
+            width: 38px;
+            height: 38px;
+            background: linear-gradient(135deg, var(--ink-soft) 50%, var(--blue) 50%);
+            border-radius: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Sora', sans-serif;
+            font-weight: 800;
+            font-size: 1.05rem;
+            color: #fff;
+            position: relative;
+            overflow: hidden
+        }
+
+        .nav-logo-mark::after {
+            content: 'S';
+            position: absolute;
+            bottom: 2px;
+            right: 3px;
+            font-size: .72rem;
+            color: var(--blue-lt);
+            font-weight: 800
+        }
+
+        .nav-logo-text {
+            font-family: 'Sora', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #fff;
+            letter-spacing: -.01em
+        }
+
+        .nav-logo-text span {
+            color: var(--blue)
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none
+        }
+
+        .nav-links a {
+            font-size: .88rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, .65);
+            transition: color .2s
+        }
+
+        .nav-links a:hover {
+            color: #fff
+        }
+
+        .nav-cta {
+            display: flex;
+            align-items: center;
+            gap: 1rem
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background: #fff;
+            border-radius: 2px
+        }
+
+        #hero {
+            min-height: 100vh;
+            background: var(--ink);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 70px
+        }
+
+        .hero-noise {
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+            opacity: .5;
+            pointer-events: none
+        }
+
+        .hero-grid {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(45, 156, 219, .05) 1px, transparent 1px), linear-gradient(90deg, rgba(45, 156, 219, .05) 1px, transparent 1px);
+            background-size: 64px 64px;
+            mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, black 30%, transparent 100%)
+        }
+
+        .hero-glow-1 {
+            position: absolute;
+            top: 15%;
+            left: 25%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(45, 156, 219, .1) 0%, transparent 70%);
+            pointer-events: none
+        }
+
+        .hero-glow-2 {
+            position: absolute;
+            bottom: 10%;
+            right: 5%;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(200, 134, 10, .06) 0%, transparent 70%);
+            pointer-events: none
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 5rem 2rem 4rem;
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 4.5rem;
+            align-items: center
+        }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            background: rgba(45, 156, 219, .1);
+            border: 1px solid rgba(45, 156, 219, .25);
+            color: var(--blue-lt);
+            padding: .4rem 1rem;
+            border-radius: 100px;
+            font-size: .75rem;
+            font-weight: 600;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            margin-bottom: 1.6rem
+        }
+
+        .hero-eyebrow::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--blue);
+            border-radius: 50%;
+            animation: pulse 2s infinite
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1)
+            }
+
+            50% {
+                opacity: .5;
+                transform: scale(1.5)
+            }
+        }
+
+        .hero-title {
+            color: #fff;
+            margin-bottom: 1.5rem
+        }
+
+        .hero-title .accent {
+            color: var(--blue)
+        }
+
+        .hero-tagline {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, .55);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+            border-left: 3px solid var(--blue);
+            padding-left: 1.1rem
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem
+        }
+
+        .hero-proof {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap
+        }
+
+        .hero-proof-item {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            font-size: .8rem;
+            color: rgba(255, 255, 255, .35);
+            font-family: 'DM Mono', monospace;
+            letter-spacing: .04em
+        }
+
+        .hero-proof-dot {
+            width: 4px;
+            height: 4px;
+            background: var(--blue);
+            border-radius: 50%;
+            opacity: .6
+        }
+
+        .hero-mockup {
+            position: relative;
+            animation: floatUp .8s ease forwards;
+            opacity: 0;
+            animation-delay: .3s
+        }
+
+        @keyframes floatUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        .mockup-browser {
+            background: var(--ink-mid);
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 32px 80px rgba(0, 0, 0, .55), 0 0 0 1px rgba(45, 156, 219, .15)
+        }
+
+        .mockup-bar {
+            background: rgba(255, 255, 255, .04);
+            padding: .6rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+            border-bottom: 1px solid rgba(255, 255, 255, .06)
+        }
+
+        .mockup-dots {
+            display: flex;
+            gap: .4rem
+        }
+
+        .mockup-dots span {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%
+        }
+
+        .mockup-dots span:nth-child(1) {
+            background: #FF5F57
+        }
+
+        .mockup-dots span:nth-child(2) {
+            background: #FFBD2E
+        }
+
+        .mockup-dots span:nth-child(3) {
+            background: #28CA41
+        }
+
+        .mockup-url {
+            flex: 1;
+            background: rgba(255, 255, 255, .05);
+            border-radius: 5px;
+            padding: .25rem .75rem;
+            font-family: 'DM Mono', monospace;
+            font-size: .72rem;
+            color: rgba(255, 255, 255, .3);
+            text-align: center
+        }
+
+        .mockup-body {
+            padding: 1.25rem
+        }
+
+        .mockup-header-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            padding-bottom: .85rem;
+            border-bottom: 1px solid rgba(255, 255, 255, .07)
+        }
+
+        .mockup-chain {
+            font-family: 'Sora', sans-serif;
+            font-size: .8rem;
+            font-weight: 700;
+            color: #fff
+        }
+
+        .mockup-chain span {
+            color: var(--blue-lt);
+            font-weight: 400;
+            font-family: 'DM Mono', monospace;
+            font-size: .7rem;
+            margin-left: .5rem
+        }
+
+        .mockup-badge {
+            font-family: 'DM Mono', monospace;
+            font-size: .65rem;
+            padding: .25rem .6rem;
+            border-radius: 4px;
+            background: rgba(45, 156, 219, .15);
+            color: var(--blue-lt);
+            letter-spacing: .04em
+        }
+
+        .mockup-kpis {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: .6rem;
+            margin-bottom: 1rem
+        }
+
+        .mkpi {
+            background: rgba(255, 255, 255, .03);
+            border: 1px solid rgba(255, 255, 255, .06);
+            border-radius: 8px;
+            padding: .75rem
+        }
+
+        .mkpi-label {
+            font-family: 'DM Mono', monospace;
+            font-size: .6rem;
+            color: rgba(255, 255, 255, .3);
+            letter-spacing: .06em;
+            margin-bottom: .3rem;
+            text-transform: uppercase
+        }
+
+        .mkpi-val {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #fff
+        }
+
+        .mkpi-val.red {
+            color: #EF9A9A
+        }
+
+        .mkpi-sub {
+            font-size: .62rem;
+            color: rgba(255, 255, 255, .25);
+            margin-top: .2rem
+        }
+
+        .mockup-section-label {
+            font-family: 'DM Mono', monospace;
+            font-size: .62rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, .3);
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            margin-bottom: .5rem
+        }
+
+        .mockup-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: .85rem
+        }
+
+        .mockup-table thead th {
+            font-family: 'DM Mono', monospace;
+            font-size: .6rem;
+            color: rgba(255, 255, 255, .25);
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            padding: .4rem .6rem;
+            border-bottom: 1px solid rgba(255, 255, 255, .06);
+            text-align: left
+        }
+
+        .mockup-table tbody tr {
+            border-bottom: 1px solid rgba(255, 255, 255, .04)
+        }
+
+        .mockup-table td {
+            padding: .45rem .6rem;
+            font-size: .72rem;
+            color: rgba(255, 255, 255, .65)
+        }
+
+        .mockup-table td:first-child {
+            color: rgba(255, 255, 255, .85);
+            font-weight: 500
+        }
+
+        .mockup-table td.loss-val {
+            font-family: 'DM Mono', monospace;
+            color: #EF9A9A;
+            font-weight: 600
+        }
+
+        .priority-badge {
+            display: inline-block;
+            font-family: 'DM Mono', monospace;
+            font-size: .58rem;
+            padding: .15rem .45rem;
+            border-radius: 3px;
+            letter-spacing: .03em
+        }
+
+        .priority-badge.imm {
+            background: rgba(139, 32, 32, .3);
+            color: #EF9A9A;
+            border: 1px solid rgba(239, 154, 154, .2)
+        }
+
+        .priority-badge.high {
+            background: rgba(200, 134, 10, .2);
+            color: #FFCC80;
+            border: 1px solid rgba(255, 204, 128, .2)
+        }
+
+        .priority-badge.mod {
+            background: rgba(45, 156, 219, .15);
+            color: var(--blue-lt);
+            border: 1px solid rgba(91, 184, 240, .2)
+        }
+
+        .mockup-footer-row {
+            display: flex;
+            gap: .5rem;
+            flex-wrap: wrap
+        }
+
+        .mockup-tab {
+            font-family: 'DM Mono', monospace;
+            font-size: .62rem;
+            padding: .3rem .75rem;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, .04);
+            color: rgba(255, 255, 255, .35);
+            border: 1px solid rgba(255, 255, 255, .07);
+            letter-spacing: .04em
+        }
+
+        .mockup-tab.active {
+            background: rgba(45, 156, 219, .15);
+            color: var(--blue-lt);
+            border-color: rgba(45, 156, 219, .3)
+        }
+
+        .stat-band {
+            background: var(--ink-mid);
+            padding: 2.5rem 0;
+            border-bottom: 1px solid rgba(45, 156, 219, .1)
+        }
+
+        .stat-band-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0
+        }
+
+        .sbs {
+            text-align: center;
+            padding: 1rem 1.5rem;
+            position: relative
+        }
+
+        .sbs+.sbs::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 15%;
+            bottom: 15%;
+            width: 1px;
+            background: rgba(255, 255, 255, .07)
+        }
+
+        .sbs-num {
+            font-family: 'Sora', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: .25rem;
+            line-height: 1
+        }
+
+        .sbs-num .accent {
+            color: var(--blue)
+        }
+
+        .sbs-label {
+            font-size: .8rem;
+            color: rgba(255, 255, 255, .4);
+            line-height: 1.35
+        }
+
+        .sbs-source {
+            font-family: 'DM Mono', monospace;
+            font-size: .62rem;
+            color: rgba(255, 255, 255, .2);
+            margin-top: .3rem
+        }
+
+        .ticker-bar {
+            background: var(--blue);
+            padding: .65rem 0;
+            overflow: hidden
+        }
+
+        .ticker-track {
+            display: flex;
+            gap: 4rem;
+            width: max-content;
+            animation: ticker 35s linear infinite
+        }
+
+        @keyframes ticker {
+            from {
+                transform: translateX(0)
+            }
+
+            to {
+                transform: translateX(-50%)
+            }
+        }
+
+        .ticker-item {
+            white-space: nowrap;
+            font-family: 'DM Mono', monospace;
+            font-size: .78rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, .9);
+            display: flex;
+            align-items: center;
+            gap: .75rem
+        }
+
+        .ticker-dot {
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, .5);
+            border-radius: 50%
+        }
+
+        .section-label {
+            font-family: 'DM Mono', monospace;
+            font-size: .72rem;
+            font-weight: 500;
+            color: var(--blue);
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            margin-bottom: .75rem;
+            display: block
+        }
+
+        #problem {
+            background: var(--ice);
+            padding: 7rem 0
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center
+        }
+
+        .problem-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: .85rem;
+            margin-top: 2.5rem
+        }
+
+        .prob-stat {
+            background: #fff;
+            border-radius: 10px;
+            padding: 1.25rem;
+            border-left: 4px solid var(--red);
+            box-shadow: var(--shadow-sm)
+        }
+
+        .prob-stat.blue {
+            border-left-color: var(--blue)
+        }
+
+        .prob-stat.amber {
+            border-left-color: var(--amber)
+        }
+
+        .prob-stat.green {
+            border-left-color: var(--green)
+        }
+
+        .prob-stat-num {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--ink-mid);
+            line-height: 1
+        }
+
+        .prob-stat-label {
+            font-size: .78rem;
+            color: var(--txt-lt);
+            margin-top: .3rem;
+            line-height: 1.3
+        }
+
+        .loss-visual {
+            background: var(--ink);
+            border-radius: 16px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg)
+        }
+
+        .loss-visual::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(139, 32, 32, .25) 0%, transparent 70%)
+        }
+
+        .loss-visual-title {
+            font-family: 'Sora', sans-serif;
+            font-size: .8rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, .4);
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem
+        }
+
+        .dept-bar {
+            margin-bottom: 1rem
+        }
+
+        .dept-bar-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: .4rem
+        }
+
+        .dept-name {
+            font-size: .84rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, .8)
+        }
+
+        .dept-pct {
+            font-family: 'DM Mono', monospace;
+            font-size: .78rem;
+            color: var(--blue-lt)
+        }
+
+        .dept-track {
+            height: 7px;
+            background: rgba(255, 255, 255, .07);
+            border-radius: 4px;
+            overflow: hidden
+        }
+
+        .dept-fill {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, var(--blue-dim), var(--blue));
+            width: 0;
+            transition: width 1.4s cubic-bezier(.4, 0, .2, 1)
+        }
+
+        .loss-total {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: rgba(139, 32, 32, .18);
+            border: 1px solid rgba(139, 32, 32, .35);
+            border-radius: 8px
+        }
+
+        .loss-total-label {
+            font-size: .72rem;
+            color: rgba(255, 255, 255, .4);
+            margin-bottom: .2rem
+        }
+
+        .loss-total-num {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.7rem;
+            font-weight: 800;
+            color: #EF9A9A
+        }
+
+        .loss-total-sub {
+            font-size: .72rem;
+            color: rgba(255, 255, 255, .3);
+            margin-top: .2rem
+        }
+
+        #bucket {
+            background: var(--ice-mid);
+            padding: 7rem 0
+        }
+
+        .bucket-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 2rem
+        }
+
+        .bucket-img-wrap img {
+            width: 100%;
+            max-width: 440px;
+            height: auto;
+            border-radius: 20px;
+            filter: drop-shadow(0 20px 50px rgba(45, 156, 219, .15))
+        }
+
+        .bucket-eyebrow {
+            font-family: 'DM Mono', monospace;
+            font-size: .72rem;
+            color: var(--blue);
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            margin-bottom: .9rem;
+            display: block
+        }
+
+        .bucket-headline {
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            font-weight: 700;
+            color: var(--ink-mid);
+            line-height: 1.2;
+            margin-bottom: 1.25rem;
+            letter-spacing: -.025em
+        }
+
+        .bucket-headline span {
+            color: var(--blue)
+        }
+
+        .bucket-body {
+            font-size: 1.05rem;
+            color: var(--txt-mid);
+            line-height: 1.75;
+            margin-bottom: 2rem
+        }
+
+        .bucket-cta-row {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap
+        }
+
+        #how {
+            background: #fff;
+            padding: 7rem 0
+        }
+
+        .how-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 4.5rem
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            position: relative
+        }
+
+        .steps-grid::before {
+            content: '';
+            position: absolute;
+            top: 2.5rem;
+            left: calc(16.66% + 1rem);
+            right: calc(16.66% + 1rem);
+            height: 2px;
+            background: linear-gradient(90deg, var(--blue), var(--blue-lt), var(--blue));
+            z-index: 0;
+            opacity: .5
+        }
+
+        .step-card {
+            background: var(--ice);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            border: 1px solid var(--border);
+            transition: all .3s ease
+        }
+
+        .step-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(45, 156, 219, .3);
+            background: #fff
+        }
+
+        .step-num {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: var(--ink-mid);
+            color: #fff;
+            font-family: 'Sora', sans-serif;
+            font-weight: 800;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            border: 3px solid var(--blue);
+            box-shadow: 0 0 0 6px rgba(45, 156, 219, .1)
+        }
+
+        .step-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem
+        }
+
+        .step-card h3 {
+            margin-bottom: .75rem;
+            color: var(--ink-mid)
+        }
+
+        .step-card p {
+            font-size: .9rem
+        }
+
+        .step-mode-row {
+            display: flex;
+            gap: .5rem;
+            justify-content: center;
+            margin-top: 1.1rem;
+            flex-wrap: wrap
+        }
+
+        .step-mode {
+            font-family: 'DM Mono', monospace;
+            font-size: .67rem;
+            padding: .28rem .65rem;
+            border-radius: 4px;
+            background: var(--ink-mid);
+            color: var(--blue-lt);
+            letter-spacing: .04em
+        }
+
+        .step-badge {
+            display: inline-block;
+            margin-top: 1rem;
+            background: var(--ink-mid);
+            color: var(--blue-lt);
+            font-family: 'DM Mono', monospace;
+            font-size: .68rem;
+            padding: .28rem .7rem;
+            border-radius: 4px;
+            letter-spacing: .05em
+        }
+
+        #platform {
+            background: var(--ink);
+            padding: 7rem 0
+        }
+
+        .ptab {
+            padding: .65rem 1.6rem;
+            border-radius: 8px;
+            font-family: 'Sora', sans-serif;
+            font-size: .88rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, .1);
+            background: rgba(255, 255, 255, .04);
+            color: rgba(255, 255, 255, .45);
+            transition: all .22s;
+            letter-spacing: .01em
+        }
+
+        .ptab:hover {
+            color: rgba(255, 255, 255, .75);
+            border-color: rgba(255, 255, 255, .22)
+        }
+
+        .ptab.active {
+            background: rgba(45, 156, 219, .15);
+            border-color: rgba(45, 156, 219, .4);
+            color: var(--blue-lt)
+        }
+
+        .pl-features-list {
+            list-style: none;
+            margin-bottom: 1.75rem
+        }
+
+        .pl-features-list li {
+            display: flex;
+            gap: .75rem;
+            align-items: flex-start;
+            padding: .65rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, .06);
+            font-size: .88rem;
+            color: rgba(255, 255, 255, .52);
+            line-height: 1.55
+        }
+
+        .pl-features-list li:last-child {
+            border-bottom: none
+        }
+
+        .pl-check {
+            color: var(--blue);
+            flex-shrink: 0;
+            margin-top: .15rem
+        }
+
+        .pm-kpi-card {
+            background: rgba(255, 255, 255, .03);
+            border: 1px solid rgba(255, 255, 255, .06);
+            border-radius: 8px;
+            padding: .7rem .65rem
+        }
+
+        .pm-kpi-label {
+            font-family: 'DM Mono', monospace;
+            font-size: .58rem;
+            color: rgba(255, 255, 255, .28);
+            letter-spacing: .05em;
+            text-transform: uppercase;
+            margin-bottom: .3rem
+        }
+
+        .pm-kpi-val {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: #fff;
+            line-height: 1
+        }
+
+        .pm-kpi-val.red {
+            color: #EF9A9A
+        }
+
+        .pm-kpi-sub {
+            font-size: .6rem;
+            color: rgba(255, 255, 255, .22);
+            margin-top: .2rem
+        }
+
+        .pill-imm {
+            background: rgba(139, 32, 32, .28);
+            color: #EF9A9A
+        }
+
+        .pill-high {
+            background: rgba(200, 134, 10, .2);
+            color: #FFCC80
+        }
+
+        .pill-mod {
+            background: rgba(45, 156, 219, .15);
+            color: #5BB8F0
+        }
+
+        #reports {
+            background: var(--ice);
+            padding: 7rem 0
+        }
+
+        .reports-header {
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto 4rem
+        }
+
+        .sheets-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem
+        }
+
+        .sheet-card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 1.75rem;
+            border: 1px solid var(--border);
+            transition: all .28s ease;
+            position: relative;
+            overflow: hidden
+        }
+
+        .sheet-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--blue)
+        }
+
+        .sheet-card.amber::before {
+            background: var(--amber)
+        }
+
+        .sheet-card.red::before {
+            background: var(--red)
+        }
+
+        .sheet-card.green::before {
+            background: var(--green)
+        }
+
+        .sheet-card.teal::before {
+            background: #0E9F9F
+        }
+
+        .sheet-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md)
+        }
+
+        .sheet-emoji {
+            font-size: 1.6rem;
+            margin-bottom: .85rem
+        }
+
+        .sheet-card h3 {
+            font-size: .95rem;
+            margin-bottom: .5rem;
+            color: var(--ink-mid)
+        }
+
+        .sheet-card p {
+            font-size: .83rem;
+            line-height: 1.6
+        }
+
+        .sheet-tag {
+            display: inline-block;
+            margin-top: .85rem;
+            font-family: 'DM Mono', monospace;
+            font-size: .65rem;
+            padding: .22rem .55rem;
+            border-radius: 4px;
+            background: var(--ice);
+            color: var(--txt-lt)
+        }
+
+        .sheet-tag.critical {
+            background: rgba(139, 32, 32, .08);
+            color: var(--red)
+        }
+
+        .sheet-tag.priority {
+            background: rgba(200, 134, 10, .08);
+            color: var(--amber)
+        }
+
+        .sheet-tag.trend {
+            background: rgba(14, 159, 159, .08);
+            color: #0E9F9F
+        }
+
+        #roles {
+            background: var(--ink);
+            padding: 7rem 0
+        }
+
+        .roles-header {
+            max-width: 680px;
+            margin: 0 0 3rem
+        }
+
+        .roles-header h2 {
+            color: #fff
+        }
+
+        .roles-header p {
+            color: rgba(255, 255, 255, .42)
+        }
+
+        .roles-list {
+            display: grid;
+            gap: .7rem
+        }
+
+        .role-row {
+            background: rgba(255, 255, 255, .035);
+            border: 1px solid rgba(255, 255, 255, .07);
+            border-radius: 14px;
+            padding: 1.75rem 2rem;
+            display: grid;
+            grid-template-columns: 190px 1fr;
+            gap: 2rem;
+            align-items: start;
+            transition: all .25s
+        }
+
+        .role-row:hover {
+            border-color: rgba(45, 156, 219, .28);
+            background: rgba(255, 255, 255, .05)
+        }
+
+        .role-row-name {
+            font-family: 'Sora', sans-serif;
+            font-size: .95rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: .2rem
+        }
+
+        .role-row-scope {
+            font-family: 'DM Mono', monospace;
+            font-size: .62rem;
+            letter-spacing: .07em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .28);
+            margin-bottom: .5rem
+        }
+
+        .role-row-tag {
+            display: inline-block;
+            font-family: 'DM Mono', monospace;
+            font-size: .63rem;
+            padding: 3px 9px;
+            border-radius: 4px;
+            border: 1px solid rgba(45, 156, 219, .28);
+            color: var(--blue-lt)
+        }
+
+        .role-row-moment {
+            font-size: .87rem;
+            color: rgba(255, 255, 255, .5);
+            line-height: 1.7;
+            font-style: italic;
+            margin-bottom: .85rem;
+            padding-left: 1rem;
+            border-left: 2px solid rgba(45, 156, 219, .35)
+        }
+
+        .role-row-what {
+            font-size: .87rem;
+            color: rgba(255, 255, 255, .44);
+            line-height: 1.7
+        }
+
+        .role-row-what strong {
+            color: rgba(255, 255, 255, .8);
+            font-weight: 600
+        }
+
+        #security {
+            background: var(--ice);
+            padding: 7rem 0
+        }
+
+        .security-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center
+        }
+
+        .security-features {
+            display: grid;
+            gap: .85rem
+        }
+
+        .sec-item {
+            background: #fff;
+            border-radius: 10px;
+            padding: 1.2rem 1.4rem;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+            transition: all .22s
+        }
+
+        .sec-item:hover {
+            border-color: rgba(45, 156, 219, .28);
+            transform: translateX(5px)
+        }
+
+        .sec-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: var(--ink-mid);
+            color: var(--blue-lt);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0
+        }
+
+        .sec-item-title {
+            font-weight: 600;
+            font-size: .88rem;
+            color: var(--ink-mid);
+            margin-bottom: .2rem
+        }
+
+        .sec-item-desc {
+            font-size: .78rem;
+            color: var(--txt-lt);
+            line-height: 1.5
+        }
+
+        #cfa {
+            background: var(--ink-mid);
+            padding: 7rem 0
+        }
+
+        .cfa-eyebrow {
+            font-family: 'DM Mono', monospace;
+            font-size: .7rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--blue-lt);
+            opacity: .7;
+            margin-bottom: .75rem;
+            display: block
+        }
+
+        .cfa-headline {
+            font-size: clamp(1.9rem, 3vw, 2.7rem);
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.2;
+            margin-bottom: .75rem;
+            letter-spacing: -.02em
+        }
+
+        .cfa-sub {
+            font-size: .95rem;
+            color: rgba(255, 255, 255, .42);
+            line-height: 1.7;
+            max-width: 560px;
+            margin-bottom: 2.5rem
+        }
+
+        .cfa-stat-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 2.5rem
+        }
+
+        .cfa-stat {
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid rgba(255, 255, 255, .07);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: border-color .2s
+        }
+
+        .cfa-stat:hover {
+            border-color: rgba(45, 156, 219, .28)
+        }
+
+        .cfa-stat-num {
+            font-family: 'Sora', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--blue-lt);
+            margin-bottom: .3rem
+        }
+
+        .cfa-stat-desc {
+            font-size: .8rem;
+            color: rgba(255, 255, 255, .42);
+            line-height: 1.5
+        }
+
+        .cfa-stat-source {
+            font-family: 'DM Mono', monospace;
+            font-size: .62rem;
+            color: rgba(255, 255, 255, .18);
+            margin-top: .5rem;
+            font-style: italic
+        }
+
+        .cfa-divider {
+            height: 1px;
+            background: rgba(255, 255, 255, .07);
+            margin-bottom: 2rem
+        }
+
+        .cfa-section-label {
+            font-family: 'DM Mono', monospace;
+            font-size: .7rem;
+            color: rgba(91, 184, 240, .75);
+            margin-bottom: 1.1rem;
+            letter-spacing: .04em
+        }
+
+        .cfa-body {
+            font-size: .95rem;
+            color: rgba(255, 255, 255, .6);
+            line-height: 1.8;
+            max-width: 700px;
+            margin-bottom: 1.5rem
+        }
+
+        .cfa-caveat {
+            background: rgba(255, 255, 255, .03);
+            border: 1px solid rgba(255, 255, 255, .07);
+            border-radius: 10px;
+            padding: 1.1rem 1.4rem;
+            display: flex;
+            gap: .9rem;
+            align-items: flex-start;
+            margin-bottom: 1.75rem
+        }
+
+        .cfa-caveat-icon {
+            color: rgba(255, 255, 255, .28);
+            font-size: .9rem;
+            flex-shrink: 0;
+            margin-top: 2px
+        }
+
+        .cfa-caveat-text {
+            font-size: .82rem;
+            color: rgba(255, 255, 255, .35);
+            line-height: 1.65
+        }
+
+        .cfa-caveat-text strong {
+            color: rgba(255, 255, 255, .6)
+        }
+
+        .cfa-partner {
+            border-left: 3px solid var(--blue);
+            padding: 1.1rem 1.4rem
+        }
+
+        .cfa-partner-text {
+            font-size: .95rem;
+            color: rgba(255, 255, 255, .6);
+            line-height: 1.8
+        }
+
+        .cfa-partner-text strong {
+            color: #fff
+        }
+
+        #pricing {
+            background: #fff;
+            padding: 7rem 0
+        }
+
+        .pricing-header {
+            max-width: 640px;
+            margin: 0 0 3rem
+        }
+
+        .included-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 2.5rem;
+            box-shadow: var(--shadow-sm)
+        }
+
+        .included-group {
+            padding: 1.75rem;
+            border-bottom: 1px solid var(--border)
+        }
+
+        .included-group:nth-child(odd) {
+            border-right: 1px solid var(--border)
+        }
+
+        .included-group:nth-last-child(1),
+        .included-group:nth-last-child(2) {
+            border-bottom: none
+        }
+
+        .included-group-title {
+            font-family: 'DM Mono', monospace;
+            font-size: .68rem;
+            font-weight: 500;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--txt-lt);
+            margin-bottom: 1rem
+        }
+
+        .included-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: .6rem
+        }
+
+        .included-feature:last-child {
+            margin-bottom: 0
+        }
+
+        .inc-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: rgba(45, 156, 219, .12);
+            flex-shrink: 0;
+            margin-top: 2px;
+            position: relative
+        }
+
+        .inc-dot::after {
+            content: '';
+            position: absolute;
+            top: 3.5px;
+            left: 3px;
+            width: 4.5px;
+            height: 2.5px;
+            border-left: 1.5px solid var(--blue);
+            border-bottom: 1.5px solid var(--blue);
+            transform: rotate(-45deg)
+        }
+
+        .inc-text {
+            font-size: .87rem;
+            color: var(--txt-mid);
+            line-height: 1.5
+        }
+
+        .roles-divider {
+            font-family: 'DM Mono', monospace;
+            font-size: .7rem;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--txt-lt);
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: .75rem
+        }
+
+        .roles-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border)
+        }
+
+        .pricing-roles-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem
+        }
+
+        .pricing-role-card {
+            background: var(--ice);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem;
+            transition: all .2s
+        }
+
+        .pricing-role-card:hover {
+            border-color: rgba(45, 156, 219, .3);
+            transform: translateY(-2px);
+            background: #fff;
+            box-shadow: var(--shadow-sm)
+        }
+
+        .pricing-role-name {
+            font-family: 'Sora', sans-serif;
+            font-size: .9rem;
+            font-weight: 600;
+            color: var(--ink-mid);
+            margin-bottom: .2rem
+        }
+
+        .pricing-role-scope {
+            font-family: 'DM Mono', monospace;
+            font-size: .62rem;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            color: var(--txt-lt);
+            margin-bottom: .65rem
+        }
+
+        .pricing-role-desc {
+            font-size: .81rem;
+            color: var(--txt-mid);
+            line-height: 1.55
+        }
+
+        .contract-note {
+            padding: 1rem 1.4rem;
+            background: var(--ice);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            font-size: .88rem;
+            color: var(--txt-mid);
+            line-height: 1.6
+        }
+
+        .contract-note strong {
+            color: var(--ink-mid)
+        }
+
+        .pricing-cta {
+            background: var(--ink-mid);
+            border-radius: 16px;
+            padding: 2.5rem 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            box-shadow: var(--shadow-md)
+        }
+
+        .pricing-cta-head {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: .4rem
+        }
+
+        .pricing-cta-body {
+            font-size: .9rem;
+            color: rgba(255, 255, 255, .5);
+            line-height: 1.6
+        }
+
+        .pricing-cta-btn {
+            flex-shrink: 0;
+            background: var(--blue);
+            color: #fff;
+            border: none;
+            border-radius: 7px;
+            padding: .85rem 1.85rem;
+            font-family: 'Sora', sans-serif;
+            font-size: .9rem;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all .2s;
+            text-decoration: none;
+            display: inline-block
+        }
+
+        .pricing-cta-btn:hover {
+            background: var(--blue-lt);
+            transform: translateY(-2px)
+        }
+
+        #contact {
+            background: var(--ice);
+            padding: 7rem 0
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: start
+        }
+
+        .contact-intro-label {
+            font-family: 'DM Mono', monospace;
+            font-size: .72rem;
+            color: var(--blue);
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            margin-bottom: .75rem
+        }
+
+        .contact-promise {
+            background: #fff;
+            border-radius: 12px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--blue);
+            box-shadow: var(--shadow-sm)
+        }
+
+        .promise-item {
+            display: flex;
+            gap: .75rem;
+            align-items: center;
+            padding: .5rem 0;
+            font-size: .88rem;
+            color: var(--txt-mid)
+        }
+
+        .promise-icon {
+            color: var(--blue);
+            font-size: 1rem
+        }
+
+        .contact-form {
+            background: #fff;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border)
+        }
+
+        .form-title {
+            font-family: 'Sora', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--ink-mid);
+            margin-bottom: 1.5rem
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem
+        }
+
+        label {
+            display: block;
+            font-size: .78rem;
+            font-weight: 600;
+            color: var(--ink-mid);
+            margin-bottom: .4rem
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: .72rem 1rem;
+            border: 1.5px solid var(--ice-mid);
+            border-radius: 8px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: .9rem;
+            color: var(--txt-dark);
+            background: var(--ice);
+            transition: border-color .2s;
+            outline: none
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: var(--blue);
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(45, 156, 219, .1)
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical
+        }
+
+        select {
+            cursor: pointer
+        }
+
+        .form-submit {
+            width: 100%;
+            justify-content: center;
+            padding: 1rem;
+            font-size: 1rem
+        }
+
+        footer {
+            background: var(--ink);
+            padding: 3.5rem 0 2rem;
+            border-top: 1px solid rgba(255, 255, 255, .05)
+        }
+
+        .footer-inner {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 2.5rem
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, .35);
+            font-size: .84rem;
+            margin-top: .75rem;
+            line-height: 1.6
+        }
+
+        .footer-col-title {
+            font-family: 'Sora', sans-serif;
+            font-size: .78rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, .45);
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            margin-bottom: 1rem
+        }
+
+        .footer-links {
+            list-style: none;
+            display: grid;
+            gap: .55rem
+        }
+
+        .footer-links a {
+            font-size: .84rem;
+            color: rgba(255, 255, 255, .35);
+            transition: color .2s
+        }
+
+        .footer-links a:hover {
+            color: #fff
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, .05);
+            padding-top: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
+
+        .footer-copy {
+            font-size: .78rem;
+            color: rgba(255, 255, 255, .22)
+        }
+
+        .footer-tagline {
+            font-family: 'DM Mono', monospace;
+            font-size: .7rem;
+            color: rgba(255, 255, 255, .18);
+            font-style: italic
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity .65s ease, transform .65s ease
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        .fade-up-delay-1 {
+            transition-delay: .1s
+        }
+
+        .fade-up-delay-2 {
+            transition-delay: .2s
+        }
+
+        .fade-up-delay-3 {
+            transition-delay: .3s
+        }
+
+        .fade-up-delay-4 {
+            transition-delay: .4s
+        }
+
+        @media(max-width:1100px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 3.5rem
+            }
+
+            #plat-grid {
+                grid-template-columns: 1fr !important
+            }
+        }
+
+        @media(max-width:1024px) {
+            .problem-grid {
+                grid-template-columns: 1fr
+            }
+
+            .pricing-roles-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .stat-band-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .footer-inner {
+                grid-template-columns: 1fr 1fr
+            }
+        }
+
+        @media(max-width:768px) {
+
+            .nav-links,
+            .nav-cta {
+                display: none
+            }
+
+            .hamburger {
+                display: flex
+            }
+
+            h1 {
+                font-size: 2.3rem
+            }
+
+            .sheets-grid {
+                grid-template-columns: 1fr
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr
+            }
+
+            .steps-grid::before {
+                display: none
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr
+            }
+
+            .pricing-roles-grid {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .included-grid {
+                grid-template-columns: 1fr
+            }
+
+            .included-group:nth-child(odd) {
+                border-right: none
+            }
+
+            .included-group:nth-last-child(2) {
+                border-bottom: 1px solid var(--border)
+            }
+
+            .pricing-cta {
+                flex-direction: column;
+                padding: 2rem;
+                text-align: center
+            }
+
+            .cfa-stat-row {
+                grid-template-columns: 1fr
+            }
+
+            .role-row {
+                grid-template-columns: 1fr
+            }
+
+            .security-grid {
+                grid-template-columns: 1fr
+            }
+
+            .footer-inner {
+                grid-template-columns: 1fr
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: .75rem;
+                text-align: center
+            }
+
+            .form-row {
+                grid-template-columns: 1fr
+            }
+
+            .bucket-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem
+            }
+
+            .mockup-kpis {
+                grid-template-columns: 1fr 1fr
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- PREVIEW GATE -->
+<div id="ss-gate" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#0b0f14;z-index:99999;display:flex;align-items:center;justify-content:center;font-family:sans-serif;">
+  <div style="text-align:center;max-width:400px;padding:48px 40px;background:#111720;border:1px solid #1e2a38;border-radius:16px;">
+    <div style="font-size:36px;font-weight:900;color:#22c55e;letter-spacing:.08em;margin-bottom:6px;">ShrinkSmart</div>
+    <div style="font-size:11px;color:#64748b;letter-spacing:.12em;text-transform:uppercase;margin-bottom:32px;">Private Preview — Friends &amp; Family</div>
+    <input id="ss-pw" type="password" placeholder="Enter preview password"
+      style="width:100%;padding:13px 16px;background:#0b0f14;border:1px solid #1e2a38;border-radius:8px;color:#e2e8f0;font-size:15px;text-align:center;outline:none;margin-bottom:12px;letter-spacing:.05em;">
+    <button onclick="ssCheck()"
+      style="width:100%;padding:13px;background:#22c55e;color:#000;border:none;border-radius:8px;font-weight:800;font-size:14px;cursor:pointer;letter-spacing:.06em;text-transform:uppercase;">
+      View Site →
+    </button>
+    <div id="ss-err" style="color:#ef4444;font-size:12px;margin-top:12px;min-height:18px;"></div>
+  </div>
+</div>
+<script>
+  (function(){
+    if(sessionStorage.getItem('ss_preview')==='1'){
+      document.getElementById('ss-gate').style.display='none';
+    }
+    document.getElementById('ss-pw').addEventListener('keydown',function(e){
+      if(e.key==='Enter') ssCheck();
+    });
+  })();
+  function ssCheck(){
+    if(document.getElementById('ss-pw').value==='Igotthis70!'){
+      sessionStorage.setItem('ss_preview','1');
+      document.getElementById('ss-gate').style.display='none';
+    } else {
+      document.getElementById('ss-err').textContent='Incorrect password. Try again.';
+      document.getElementById('ss-pw').value='';
+      document.getElementById('ss-pw').focus();
+    }
+  }
+</script>
+```
+    <nav id="navbar">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">
+                <div class="nav-logo-mark">S</div><span class="nav-logo-text">Shrink<span>Smart</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#problem">The Problem</a></li>
+                <li><a href="#how">How It Works</a></li>
+                <li><a href="#platform">See It Live</a></li>
+                <li><a href="#roles">Who It's For</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+            </ul>
+            <div class="nav-cta"><a href="#contact" class="btn btn-primary"
+                    style="padding:.6rem 1.3rem;font-size:.85rem;">Request Access</a></div>
+            <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+        </div>
+    </nav>
+
+    <section id="hero">
+        <div class="hero-noise"></div>
+        <div class="hero-grid"></div>
+        <div class="hero-glow-1"></div>
+        <div class="hero-glow-2"></div>
+        <div class="hero-content">
+            <div class="hero-left fade-up">
+                <div class="hero-eyebrow">Perishables Loss Management Platform</div>
+                <h1 class="hero-title">Every Loss Has<br>a <span class="accent">Pattern.</span><br>We Find Yours.</h1>
+                <p class="hero-tagline">The clearest picture of where your perishable dollars are going — and exactly
+                    what to do about it Monday morning.</p>
+                <div class="hero-actions">
+                    <a href="#contact" class="btn btn-primary">Request Access &rarr;</a>
+                    <a href="#platform" class="btn btn-outline">See the Platform</a>
+                </div>
+                <div class="hero-proof">
+                    <div class="hero-proof-item"><span class="hero-proof-dot"></span>Deli &middot; Meat &middot; Bakery
+                        &middot; Produce</div>
+                    <div class="hero-proof-item"><span class="hero-proof-dot"></span>Role-based dashboards</div>
+                    <div class="hero-proof-item"><span class="hero-proof-dot"></span>No data science required</div>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="hero-mockup">
+                    <div class="mockup-browser">
+                        <div class="mockup-bar">
+                            <div class="mockup-dots"><span></span><span></span><span></span></div>
+                            <div class="mockup-url">app.shrinksmart.net &mdash; Deli Report</div>
+                        </div>
+                        <div class="mockup-body">
+                            <div class="mockup-header-row">
+                                <div class="mockup-chain">Valley Fresh Markets <span>/ Store #42 &mdash; Deli / Week
+                                        Ending 03/22/2026</span></div>
+                                <div class="mockup-badge">Official Weekly Report</div>
+                            </div>
+                            <div class="mockup-kpis">
+                                <div class="mkpi">
+                                    <div class="mkpi-label">Total Loss</div>
+                                    <div class="mkpi-val red">$2,847</div>
+                                    <div class="mkpi-sub">This week</div>
+                                </div>
+                                <div class="mkpi">
+                                    <div class="mkpi-label">Loss Rate</div>
+                                    <div class="mkpi-val red">4.2%</div>
+                                    <div class="mkpi-sub">vs 3.1% LY</div>
+                                </div>
+                                <div class="mkpi">
+                                    <div class="mkpi-label">Annualized</div>
+                                    <div class="mkpi-val">$148K</div>
+                                    <div class="mkpi-sub">Projected</div>
+                                </div>
+                                <div class="mkpi">
+                                    <div class="mkpi-label">YoY Change</div>
+                                    <div class="mkpi-val red">&#9650; +1.1%</div>
+                                    <div class="mkpi-sub">Getting worse</div>
+                                </div>
+                            </div>
+                            <div class="mockup-section-label">&#9888; Items Requiring Attention &mdash; Ranked by Loss $
+                            </div>
+                            <table class="mockup-table">
+                                <thead>
+                                    <tr>
+                                        <th>Item</th>
+                                        <th>Loss $</th>
+                                        <th>Priority</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Rotisserie Chicken</td>
+                                        <td class="loss-val">$412</td>
+                                        <td><span class="priority-badge imm">IMMEDIATE</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mac &amp; Cheese (Hot Bar)</td>
+                                        <td class="loss-val">$289</td>
+                                        <td><span class="priority-badge imm">IMMEDIATE</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Imported Brie 8oz</td>
+                                        <td class="loss-val">$231</td>
+                                        <td><span class="priority-badge high">HIGH</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Chicken Salad Grab &amp; Go</td>
+                                        <td class="loss-val">$187</td>
+                                        <td><span class="priority-badge high">HIGH</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mashed Potatoes (Hot Bar)</td>
+                                        <td class="loss-val">$143</td>
+                                        <td><span class="priority-badge mod">MODERATE</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="mockup-footer-row">
+                                <div class="mockup-tab active">Executive Summary</div>
+                                <div class="mockup-tab">Destroyed</div>
+                                <div class="mockup-tab">Discounted</div>
+                                <div class="mockup-tab">Dual Problems</div>
+                                <div class="mockup-tab">Optimize &rarr;</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="stat-band">
+        <div class="container">
+            <div class="stat-band-grid">
+                <div class="sbs fade-up">
+                    <div class="sbs-num"><span class="accent">$132</span>B</div>
+                    <div class="sbs-label">Projected global retail shrink in 2024</div>
+                    <div class="sbs-source">Capital One / NRF</div>
+                </div>
+                <div class="sbs fade-up fade-up-delay-1">
+                    <div class="sbs-num"><span class="accent">65</span>%</div>
+                    <div class="sbs-label">Of all shrink comes from perishable departments</div>
+                    <div class="sbs-source">FMI National Survey</div>
+                </div>
+                <div class="sbs fade-up fade-up-delay-2">
+                    <div class="sbs-num"><span class="accent">64</span>%</div>
+                    <div class="sbs-label">Of shrink caused by operations &mdash; not theft</div>
+                    <div class="sbs-source">FMI / Retail Control Group</div>
+                </div>
+                <div class="sbs fade-up fade-up-delay-3">
+                    <div class="sbs-num"><span class="accent">$93</span>K</div>
+                    <div class="sbs-label">Average annual meat dept. loss per store</div>
+                    <div class="sbs-source">FMI Shrink Survey</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ticker-bar">
+        <div class="ticker-track" id="ticker">
+            <div class="ticker-item"><span class="ticker-dot"></span> Deli &mdash; Avg $74,000/yr in loss per store
+            </div>
+            <div class="ticker-item"><span class="ticker-dot"></span> Meat &mdash; Avg $93,000/yr in loss per store
+            </div>
+            <div class="ticker-item"><span class="ticker-dot"></span> Produce &mdash; Avg $82,000/yr in loss per store
+            </div>
+            <div class="ticker-item"><span class="ticker-dot"></span> 30% of all grocery food is thrown away</div>
+            <div class="ticker-item"><span class="ticker-dot"></span> 80% of surplus food comes from perishables</div>
+            <div class="ticker-item"><span class="ticker-dot"></span> 16 billion lbs of food wasted by US retailers
+                annually</div>
+            <div class="ticker-item"><span class="ticker-dot"></span> 64% of shrink is preventable with better
+                operations</div>
+            <div class="ticker-item"><span class="ticker-dot"></span> Deli &mdash; Avg $74,000/yr in loss per store
+            </div>
+            <div class="ticker-item"><span class="ticker-dot"></span> Meat &mdash; Avg $93,000/yr in loss per store
+            </div>
+            <div class="ticker-item"><span class="ticker-dot"></span> Produce &mdash; Avg $82,000/yr in loss per store
+            </div>
+            <div class="ticker-item"><span class="ticker-dot"></span> 30% of all grocery food is thrown away</div>
+            <div class="ticker-item"><span class="ticker-dot"></span> 80% of surplus food comes from perishables</div>
+            <div class="ticker-item"><span class="ticker-dot"></span> 16 billion lbs of food wasted by US retailers
+                annually</div>
+            <div class="ticker-item"><span class="ticker-dot"></span> 64% of shrink is preventable with better
+                operations</div>
+        </div>
+    </div>
+
+    <section id="problem">
+        <div class="container">
+            <div class="problem-grid">
+                <div class="fade-up">
+                    <span class="section-label">The Problem</span>
+                    <h2>Shrink Is Silently Draining Your Profitability</h2>
+                    <p style="margin-top:1rem;">Perishable shrink is one of the largest and most controllable cost
+                        centers in grocery &mdash; yet it remains one of the least understood. The data has always
+                        existed, buried inside your weekly loss data exports. No one has had a fast, simple way to turn
+                        that raw data into a clear action plan. Until now.</p>
+                    <div class="problem-stats">
+                        <div class="prob-stat">
+                            <div class="prob-stat-num">$93K</div>
+                            <div class="prob-stat-label">Avg annual meat dept. loss per store</div>
+                        </div>
+                        <div class="prob-stat blue">
+                            <div class="prob-stat-num">$82K</div>
+                            <div class="prob-stat-label">Avg annual produce dept. loss per store</div>
+                        </div>
+                        <div class="prob-stat amber">
+                            <div class="prob-stat-num">$74K</div>
+                            <div class="prob-stat-label">Avg annual deli dept. loss per store</div>
+                        </div>
+                        <div class="prob-stat green">
+                            <div class="prob-stat-num">64%</div>
+                            <div class="prob-stat-label">Of shrink caused by operational breakdowns &mdash; not theft
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fade-up fade-up-delay-2">
+                    <div class="loss-visual">
+                        <div class="loss-visual-title">Shrink by Department &mdash; Industry Average</div>
+                        <div class="dept-bar">
+                            <div class="dept-bar-label"><span class="dept-name">&#x1F969; Meat &amp; Seafood</span><span
+                                    class="dept-pct">26% of total store shrink</span></div>
+                            <div class="dept-track">
+                                <div class="dept-fill" data-w="80%"></div>
+                            </div>
+                        </div>
+                        <div class="dept-bar">
+                            <div class="dept-bar-label"><span class="dept-name">&#x1F966; Produce</span><span
+                                    class="dept-pct">16% of total store shrink</span></div>
+                            <div class="dept-track">
+                                <div class="dept-fill" data-w="64%"></div>
+                            </div>
+                        </div>
+                        <div class="dept-bar">
+                            <div class="dept-bar-label"><span class="dept-name">&#x1F957; Deli</span><span
+                                    class="dept-pct">14% of total store shrink</span></div>
+                            <div class="dept-track">
+                                <div class="dept-fill" data-w="56%"></div>
+                            </div>
+                        </div>
+                        <div class="dept-bar">
+                            <div class="dept-bar-label"><span class="dept-name">&#x1F35E; Bakery</span><span
+                                    class="dept-pct">9% of total store shrink</span></div>
+                            <div class="dept-track">
+                                <div class="dept-fill" data-w="36%"></div>
+                            </div>
+                        </div>
+                        <div class="loss-total">
+                            <div class="loss-total-label">Perishable departments combined</div>
+                            <div class="loss-total-num">65% of all store shrink</div>
+                            <div class="loss-total-sub">Source: FMI National Supermarket Shrink Survey</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="bucket" style="background:var(--ice-mid);padding:7rem 0;">
+        <div class="bucket-grid">
+            <div class="bucket-img-wrap fade-up"><img src="bucket.jpg"
+                    alt="Leaking bucket representing perishable shrink loss"></div>
+            <div class="fade-up fade-up-delay-2">
+                <span class="bucket-eyebrow">The Hidden Cost of Inaction</span>
+                <h2 class="bucket-headline">The holes are already there.<br><span>The money is already dripping
+                        out.</span></h2>
+                <p class="bucket-body">Every week you run a store without a clear picture of your loss, money you could
+                    have kept walks out the door. ShrinkSmart turns the data you already have into the clearest picture
+                    of your perishable loss &mdash; and a ranked action plan to close the gap.</p>
+                <div class="bucket-cta-row">
+                    <a href="#how" class="btn btn-primary">See How It Works &rarr;</a>
+                    <a href="#contact" class="btn btn-ghost">Get a Free Analysis</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how">
+        <div class="container">
+            <div class="how-header fade-up">
+                <span class="section-label">How It Works</span>
+                <h2>Three Steps. Minutes. Actionable Results.</h2>
+                <p style="margin-top:.75rem;">You already pull a weekly loss report. You already have the data.
+                    ShrinkSmart takes that data and tells you exactly what to do Monday morning.</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card fade-up fade-up-delay-1">
+                    <div class="step-num">1</div>
+                    <div class="step-icon">&#x1F510;</div>
+                    <h3>Log In &amp; Select Department</h3>
+                    <p>Secure role-based login. Your access level determines exactly what you see &mdash; from a single
+                        store to an entire chain.</p><span class="step-badge">Role-Based Access</span>
+                </div>
+                <div class="step-card fade-up fade-up-delay-2">
+                    <div class="step-num">2</div>
+                    <div class="step-icon">&#x1F4E4;</div>
+                    <h3>Upload Your Loss Data Export</h3>
+                    <p>Drag and drop the weekly loss data export you already have. ShrinkSmart auto-detects the format
+                        and processes it instantly &mdash; no reformatting required.</p><span
+                        class="step-badge">Auto-Detection</span>
+                </div>
+                <div class="step-card fade-up fade-up-delay-3">
+                    <div class="step-num">3</div>
+                    <div class="step-icon">&#x1F4CA;</div>
+                    <h3>Review &amp; Act on Your Report</h3>
+                    <p>Two modes: the <strong>Official Weekly Report</strong> (Store Manager, builds trend history) or
+                        an <strong>On-Demand Snapshot</strong> (any role, any time).</p>
+                    <div class="step-mode-row"><span class="step-mode">Official Weekly Report</span><span
+                            class="step-mode">On-Demand Snapshot</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="platform">
+        <div class="container">
+            <div style="text-align:center;max-width:660px;margin:0 auto 3rem;" class="fade-up">
+                <span class="section-label" style="color:var(--blue-lt);">See It Live</span>
+                <h2 style="color:#fff;margin-top:.5rem;margin-bottom:.75rem;">One Platform. Built for Every Department.
+                </h2>
+                <p style="color:rgba(255,255,255,.42);">Click a department to see exactly what ShrinkSmart shows your
+                    team &mdash; real items, real flags, real action plan.</p>
+            </div>
+            <div style="display:flex;gap:.5rem;justify-content:center;margin-bottom:3.5rem;flex-wrap:wrap;"
+                class="fade-up">
+                <button class="ptab active" onclick="switchDept('deli',this)">&#x1F957; Deli</button>
+                <button class="ptab" onclick="switchDept('meat',this)">&#x1F969; Meat / Seafood</button>
+                <button class="ptab" onclick="switchDept('bakery',this)">&#x1F35E; Bakery</button>
+                <button class="ptab" onclick="switchDept('produce',this)">&#x1F966; Produce</button>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1.5fr;gap:4rem;align-items:start;"
+                class="fade-up fade-up-delay-1" id="plat-grid">
+                <div id="pl-left" style="transition:opacity .2s ease,transform .2s ease;">
+                    <div style="font-family:'Sora',sans-serif;font-size:1.15rem;font-weight:700;color:#fff;margin-bottom:.35rem;"
+                        id="pl-name">Deli Department</div>
+                    <div style="font-size:.9rem;color:rgba(255,255,255,.4);line-height:1.65;margin-bottom:1.75rem;"
+                        id="pl-sub">Typically the highest-loss perishable department. ShrinkSmart analyzes hot food,
+                        cold prepared foods, specialty cheese, and service case items.</div>
+                    <ul class="pl-features-list" id="pl-features"></ul>
+                    <div
+                        style="font-family:'DM Mono',monospace;font-size:.68rem;color:rgba(255,255,255,.22);letter-spacing:.04em;line-height:1.65;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,.06);">
+                        Sample data &mdash; Valley Fresh Demo Environment.<br>Real reports built from your actual weekly
+                        loss data exports.</div>
+                </div>
+                <div id="pl-right"
+                    style="border-radius:14px;overflow:hidden;border:1px solid rgba(45,156,219,.18);box-shadow:0 28px 70px rgba(0,0,0,.5);transition:opacity .2s ease,transform .2s ease;">
+                    <div
+                        style="background:rgba(255,255,255,.04);padding:.6rem 1rem;display:flex;align-items:center;gap:.75rem;border-bottom:1px solid rgba(255,255,255,.06);">
+                        <div style="display:flex;gap:.4rem;"><span
+                                style="width:10px;height:10px;border-radius:50%;background:#FF5F57;display:inline-block;"></span><span
+                                style="width:10px;height:10px;border-radius:50%;background:#FFBD2E;display:inline-block;"></span><span
+                                style="width:10px;height:10px;border-radius:50%;background:#28CA41;display:inline-block;"></span>
+                        </div>
+                        <div id="pl-url"
+                            style="flex:1;background:rgba(255,255,255,.05);border-radius:5px;padding:.25rem .75rem;font-family:'DM Mono',monospace;font-size:.7rem;color:rgba(255,255,255,.28);text-align:center;">
+                            app.shrinksmart.net &mdash; Deli / Store #42</div>
+                    </div>
+                    <div style="background:var(--ink-mid);padding:1.25rem;">
+                        <div
+                            style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;padding-bottom:.85rem;border-bottom:1px solid rgba(255,255,255,.07);">
+                            <div>
+                                <div id="pl-title"
+                                    style="font-family:'Sora',sans-serif;font-size:.85rem;font-weight:700;color:#fff;">
+                                    Deli Department &mdash; Week Ending 03/22/2026</div>
+                                <div
+                                    style="font-family:'DM Mono',monospace;font-size:.65rem;color:rgba(255,255,255,.28);margin-top:.2rem;">
+                                    Valley Fresh Markets &middot; Store #42 &middot; Official Weekly Report</div>
+                            </div>
+                            <div id="pl-warn"
+                                style="font-family:'DM Mono',monospace;font-size:.63rem;padding:.25rem .65rem;border-radius:4px;background:rgba(45,156,219,.15);color:var(--blue-lt);white-space:nowrap;border:1px solid rgba(45,156,219,.25);">
+                                &#9888; Loss Rate Above Target</div>
+                        </div>
+                        <div id="pl-kpis"
+                            style="display:grid;grid-template-columns:repeat(5,1fr);gap:.55rem;margin-bottom:1.1rem;">
+                        </div>
+                        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.6rem;">
+                            <div id="pl-tbl-title"
+                                style="font-family:'DM Mono',monospace;font-size:.65rem;color:rgba(255,255,255,.3);letter-spacing:.07em;text-transform:uppercase;">
+                                Top Items &mdash; Destroyed (Ranked by Loss $)</div>
+                            <div style="font-family:'DM Mono',monospace;font-size:.63rem;color:var(--blue-lt);">View
+                                full report &rarr;</div>
+                        </div>
+                        <table style="width:100%;border-collapse:collapse;margin-bottom:1rem;">
+                            <thead>
+                                <tr id="pl-thead"></tr>
+                            </thead>
+                            <tbody id="pl-tbody"></tbody>
+                        </table>
+                        <div id="pl-tabs" style="display:flex;gap:.4rem;flex-wrap:wrap;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reports">
+        <div class="container">
+            <div class="reports-header fade-up">
+                <span class="section-label">The Report</span>
+                <h2>Nine Sections. One Complete Picture.</h2>
+                <p style="margin-top:.75rem;">Every ShrinkSmart report includes up to nine analysis sections tailored to
+                    the selected department &mdash; from executive KPIs to the specific item-level action each manager
+                    needs to take this week.</p>
+            </div>
+            <div class="sheets-grid">
+                <div class="sheet-card fade-up fade-up-delay-1">
+                    <div class="sheet-emoji">&#x1F4CA;</div>
+                    <h3>Executive Summary</h3>
+                    <p>Total loss, weekly averages, annualized projections, and top findings in a format shareable with
+                        leadership without explanation.</p><span class="sheet-tag">Leadership Ready</span>
+                </div>
+                <div class="sheet-card amber fade-up fade-up-delay-2">
+                    <div class="sheet-emoji">&#x1F5D1;&#xFE0F;</div>
+                    <h3>Items Destroyed</h3>
+                    <p>Every written-off item ranked by loss dollar. Over-production, coding errors, and ordering
+                        inefficiencies surface immediately..</p><span class="sheet-tag priority">High Impact</span>
+                </div>
+                <div class="sheet-card fade-up fade-up-delay-3">
+                    <div class="sheet-emoji">&#x1F4C9;</div>
+                    <h3>Items Discounted</h3>
+                    <p>Items reduced in price to avoid waste, ranked by total dollars lost. Reveals ordering and
+                        assortment misalignment patterns..</p><span class="sheet-tag">Ordering Insight</span>
+                </div>
+                <div class="sheet-card red fade-up fade-up-delay-1">
+                    <div class="sheet-emoji">&#x26A0;&#xFE0F;</div>
+                    <h3>Dual Problem Items</h3>
+                    <p>Products appearing in BOTH destroyed and discounted lists. These represent systemic failure and
+                        deliver the fastest ROI when fixed.</p><span class="sheet-tag critical">Highest Priority</span>
+                </div>
+                <div class="sheet-card red fade-up fade-up-delay-2">
+                    <div class="sheet-emoji">&#x1F6A8;</div>
+                    <h3>Zero-Sales Items</h3>
+                    <p>Items with zero net sales still being ordered and written off. Stop ordering these immediately
+                        &mdash; pure preventable waste.</p><span class="sheet-tag critical">Stop Ordering</span>
+                </div>
+                <div class="sheet-card amber fade-up fade-up-delay-3">
+                    <div class="sheet-emoji">&#x23F1;&#xFE0F;</div>
+                    <h3>Time Mandate Items</h3>
+                    <p>Hot bar and salad bar items pulled due to food safety hold rules. Separates operational loss
+                        from ordering problems.</p><span class="sheet-tag priority">Batch Sizing</span>
+                </div>
+                <div class="sheet-card fade-up fade-up-delay-1">
+                    <div class="sheet-emoji">&#x1F517;</div>
+                    <h3>Similar SKU Groups</h3>
+                    <p>Auto-detected brand families and similar product lines all appearing in loss lists &mdash; a
+                        clear sign of over-assortment.</p><span class="sheet-tag">Assortment</span>
+                </div>
+                <div class="sheet-card green fade-up fade-up-delay-2">
+                    <div class="sheet-emoji">&#x1F3AF;</div>
+                    <h3>Optimization Plan</h3>
+                    <p>A prioritized, plain-English action plan with estimated savings per item &mdash; labeled
+                        Immediate, High, or Moderate priority.</p><span class="sheet-tag">Monday Morning Actions</span>
+                </div>
+                <div class="sheet-card teal fade-up fade-up-delay-3">
+                    <div class="sheet-emoji">&#x1F4C8;</div>
+                    <h3>Year-Over-Year Trends</h3>
+                    <p>Week-over-week and year-over-year loss comparisons built in automatically. See whether shrink is
+                        improving or getting worse &mdash; without building a single spreadsheet.</p><span
+                        class="sheet-tag trend">Trend Tracking</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="roles">
+        <div class="container">
+            <div class="roles-header fade-up">
+                <span class="section-label" style="color:var(--blue-lt);">Who It's Built For</span>
+                <h2>Built Around the People Who Actually Carry the Weight of Shrink.</h2>
+                <p>Every role in this chain has a different relationship with loss. ShrinkSmart is designed around that
+                    &mdash; not a one-size report, but a purpose-built view for each seat at the table.</p>
+            </div>
+            <div class="roles-list">
+                <div class="role-row fade-up">
+                    <div class="role-row-left">
+                        <div class="role-row-name">Store Manager</div>
+                        <div class="role-row-scope">Store level</div>
+                        <div class="role-row-tag">Weekly Report</div>
+                    </div>
+                    <div>
+                        <div class="role-row-moment">&ldquo;Monday morning, I need to know where we missed the mark last
+                            week and what we&rsquo;re doing about it before the district manager calls.&rdquo;</div>
+                        <div class="role-row-what">ShrinkSmart runs the Official Weekly Report, writes every result to
+                            the trend database, and hands you a ranked list of problem items with a plain-English action
+                            plan &mdash; before your first cup of coffee.</div>
+                    </div>
+                </div>
+                <div class="role-row fade-up">
+                    <div class="role-row-left">
+                        <div class="role-row-name">Department Manager</div>
+                        <div class="role-row-scope">Department level</div>
+                        <div class="role-row-tag">On-Demand Snapshot</div>
+                    </div>
+                    <div>
+                        <div class="role-row-moment">&ldquo;I&rsquo;m doing everything I know how to do. I&rsquo;m
+                            working hard every single day. But something is killing me in here &mdash; and I can&rsquo;t
+                            figure out what it is.&rdquo;</div>
+                        <div class="role-row-what">Department Snapshots pull up your full picture anytime &mdash;
+                            destroyed items, discounted items, zero-sales flags, time mandate waste &mdash; all ranked
+                            by dollar. <strong>You&rsquo;ll know exactly what it is.</strong> And you&rsquo;ll know it
+                            today, not at the end of the week.</div>
+                    </div>
+                </div>
+                <div class="role-row fade-up">
+                    <div class="role-row-left">
+                        <div class="role-row-name">District Manager</div>
+                        <div class="role-row-scope">District level</div>
+                        <div class="role-row-tag">District Dashboard</div>
+                    </div>
+                    <div>
+                        <div class="role-row-moment">&ldquo;I have 12 stores. I can&rsquo;t walk every one of them every
+                            week. I need to know which ones are actually a problem.&rdquo;</div>
+                        <div class="role-row-what">The district dashboard ranks every store in your district side by
+                            side. <strong>One view tells you where to spend your time.</strong> Drill into any
+                            store&rsquo;s full report without asking anyone to send you anything.</div>
+                    </div>
+                </div>
+                <div class="role-row fade-up">
+                    <div class="role-row-left">
+                        <div class="role-row-name">Category Manager</div>
+                        <div class="role-row-scope">Chain-wide items</div>
+                        <div class="role-row-tag">Chain Analysis</div>
+                    </div>
+                    <div>
+                        <div class="role-row-moment">&ldquo;We carry 14 SKUs of shrimp across 30 stores. I need to know
+                            which ones are dragging us down &mdash; chain-wide, not just one location.&rdquo;</div>
+                        <div class="role-row-what">Chain-wide loss aggregated by item, with configurable % loss
+                            thresholds and SKU rationalization analysis across every store. <strong>No file uploads. No
+                                manual compiling.</strong> The data flows to you.</div>
+                    </div>
+                </div>
+                <div class="role-row fade-up">
+                    <div class="role-row-left">
+                        <div class="role-row-name">Corp / VP</div>
+                        <div class="role-row-scope">Full chain</div>
+                        <div class="role-row-tag">Executive View</div>
+                    </div>
+                    <div>
+                        <div class="role-row-moment">&ldquo;I don&rsquo;t need item-level detail &mdash; I need to know
+                            which districts are managing shrink and which ones aren&rsquo;t. And I need it in one
+                            place.&rdquo;</div>
+                        <div class="role-row-what">Full chain visibility across all districts, all departments, all
+                            stores. Executive trend dashboard shows the direction of your shrink performance over time.
+                            <strong>Every role&rsquo;s dashboard is included.</strong> You see the whole picture.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="security">
+        <div class="container">
+            <div class="security-grid">
+                <div class="fade-up">
+                    <span class="section-label">Security &amp; Data Protection</span>
+                    <h2>Enterprise-Grade Security Built In From Day One</h2>
+                    <p style="margin-top:1rem;margin-bottom:2rem;">Grocery chains operate with sensitive operational and
+                        financial data. ShrinkSmart was designed from the ground up with the security requirements of
+                        enterprise clients in mind.</p>
+                    <a href="#contact" class="btn btn-dark">Request Access &rarr;</a>
+                </div>
+                <div class="security-features fade-up fade-up-delay-2">
+                    <div class="sec-item">
+                        <div class="sec-icon">&#x1F512;</div>
+                        <div>
+                            <div class="sec-item-title">Role-Based Access Control</div>
+                            <div class="sec-item-desc">Store Managers see only their store&rsquo;s data. District
+                                Managers see only their district. No user can access data outside their permission
+                                level.</div>
+                        </div>
+                    </div>
+                    <div class="sec-item">
+                        <div class="sec-icon">&#x1F510;</div>
+                        <div>
+                            <div class="sec-item-title">Session Isolation</div>
+                            <div class="sec-item-desc">No data is ever shared between user sessions. One store&rsquo;s
+                                upload cannot be seen by another store&rsquo;s user &mdash; at any time, under any
+                                circumstances.</div>
+                        </div>
+                    </div>
+                    <div class="sec-item">
+                        <div class="sec-icon">&#x1F6E1;&#xFE0F;</div>
+                        <div>
+                            <div class="sec-item-title">Secure Password Hashing</div>
+                            <div class="sec-item-desc">Passwords are never stored in readable format. Industry-standard
+                                hashing protects all user credentials.</div>
+                        </div>
+                    </div>
+                    <div class="sec-item">
+                        <div class="sec-icon">&#x1F511;</div>
+                        <div>
+                            <div class="sec-item-title">Encrypted Data Transmission</div>
+                            <div class="sec-item-desc">All files transferred over HTTPS. Data encrypted both in transit
+                                and at rest.</div>
+                        </div>
+                    </div>
+                    <div class="sec-item">
+                        <div class="sec-icon">&#x1F5D1;&#xFE0F;</div>
+                        <div>
+                            <div class="sec-item-title">Zero File Retention by Default</div>
+                            <div class="sec-item-desc">Uploaded files are never written to disk. Raw data is processed
+                                in memory and discarded automatically &mdash; your file never touches our servers
+                                permanently.</div>
+                        </div>
+                    </div>
+                    <div class="sec-item">
+                        <div class="sec-icon">&#x1F4CB;</div>
+                        <div>
+                            <div class="sec-item-title">Full Audit Logging</div>
+                            <div class="sec-item-desc">Every login, upload, and report download logged with timestamp
+                                and user ID &mdash; a complete audit trail for compliance.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cfa">
+        <div class="container">
+            <div class="fade-up">
+                <span class="cfa-eyebrow">The Case for Action</span>
+                <h2 class="cfa-headline">The loss is already happening.<br>The question is whether you can see it.</h2>
+                <p class="cfa-sub">These are industry averages, sourced from national retail surveys. They don&rsquo;t
+                    belong to ShrinkSmart. They belong to the grocery industry. We didn&rsquo;t manufacture the problem
+                    &mdash; we built a tool to make it visible.</p>
+            </div>
+            <div class="cfa-stat-row fade-up">
+                <div class="cfa-stat">
+                    <div class="cfa-stat-num">$93K</div>
+                    <div class="cfa-stat-desc">Average annual loss in Meat &amp; Seafood per store</div>
+                    <div class="cfa-stat-source">FMI National Supermarket Shrink Survey</div>
+                </div>
+                <div class="cfa-stat">
+                    <div class="cfa-stat-num">$82K</div>
+                    <div class="cfa-stat-desc">Average annual loss in Produce per store</div>
+                    <div class="cfa-stat-source">FMI National Supermarket Shrink Survey</div>
+                </div>
+                <div class="cfa-stat">
+                    <div class="cfa-stat-num">$74K</div>
+                    <div class="cfa-stat-desc">Average annual loss in Deli per store</div>
+                    <div class="cfa-stat-source">FMI National Supermarket Shrink Survey</div>
+                </div>
+            </div>
+            <div class="cfa-divider"></div>
+            <div class="fade-up">
+                <div class="cfa-section-label">What ShrinkSmart does &mdash; and doesn&rsquo;t do</div>
+                <p class="cfa-body">ShrinkSmart gives your team the clearest possible picture of where loss is
+                    happening, which items are driving it, and what actions to consider. It doesn&rsquo;t reduce shrink.
+                    Your team does. The platform&rsquo;s value is entirely dependent on the follow-through at every
+                    level &mdash; from the department manager adjusting a production par to the district manager holding
+                    locations accountable week over week.</p>
+                <div class="cfa-caveat"><span class="cfa-caveat-icon">&#9432;</span><span
+                        class="cfa-caveat-text"><strong>No guarantees, no projections.</strong> ShrinkSmart does not
+                        guarantee any specific reduction in shrink or dollar savings. Every chain is different. Results
+                        depend on your team&rsquo;s engagement with the data and their willingness to act on what it
+                        shows. We make the problem visible. What your team does with that visibility is what drives the
+                        outcome.</span></div>
+                <div class="cfa-partner">
+                    <p class="cfa-partner-text"><strong>We&rsquo;re not here to drop a report on your desk and walk
+                            away.</strong> ShrinkSmart is built by someone who has worked in this industry and
+                        understands the real-world pressures your team faces. Whether you need help interpreting the
+                        data, building a rollout plan for your stores, or getting your team aligned around what the
+                        numbers are showing &mdash; we&rsquo;re available. That&rsquo;s part of what you&rsquo;re
+                        signing up for.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing">
+        <div class="container">
+            <div class="pricing-header fade-up">
+                <span class="section-label">Pricing</span>
+                <h2>One Platform. Everything Included.</h2>
+                <p style="margin-top:.75rem;">ShrinkSmart is a single package &mdash; not a tiered subscription. Every
+                    feature below is included. We configure role-based access around your organization&rsquo;s structure
+                    during onboarding.</p>
+            </div>
+            <div class="included-grid fade-up">
+                <div class="included-group">
+                    <div class="included-group-title">Report Engine</div>
+                    <div class="included-feature"><span class="inc-dot"></span><span class="inc-text">All 4 perishable
+                            departments &mdash; Deli, Meat/Seafood, Bakery, Produce</span></div>
+                    <div class="included-feature"><span class="inc-dot"></span><span class="inc-text">Items destroyed,
+                            discounted &amp; dual problem sections</span></div>
+                    <div class="included-feature"><span class="inc-dot"></span><span class="inc-text">Zero-sales &amp;
+                            time mandate sections</span></div>
+                    <div class="included-feature"><span class="inc-dot"></span><span class="inc-text">SKU
+                            rationalization &amp; similar groups</span></div>
+                    <div class="included-feature"><span class="inc-dot"></span><span class="inc-text">Optimization plan
+                            with prioritized actions</span></div>
+                </div>
+                <div class="included-group">
+                    <div class="included-group-title">Trend &amp; History</div>
+                    <div class="included-feature"><span class="inc-dot"></span><span class="inc-text">Official Weekly
+                            Report &mdash; writes to trend database</span></div>
+                    <div class="included-feature"><span class="inc-dot"></span><span class="inc-text">Department
+                            Snapshot &mdash; on-demand, read-only</span></div>
+                    <div class="included-feature"><span class="inc-dot"></span><span class="inc-text">Year-over-year
+                            comparison built in automatically</span></div>
+                    <div class="included-feature"><span class="inc-dot"></span><span class="inc-text">18 months of
+                            rolling history per store</span></div>
+                </div>
+                <div class="included-group">
+                    <div class="included-group-title">Dashboards &amp; Visibility</div>
+                    <div class="included-feature"><span class="inc-dot"></span><span class="inc-text">Store-level
+                            dashboard for Store Managers</span></div>
+                    <div class="included-feature"><span class="inc-dot"></span><span class="inc-text">District dashboard
+                            &mdash; all stores ranked side by side</span></div>
+                    <div class="included-feature"><span class="inc-dot"></span><span class="inc-text">Category Manager
+                            chain-wide item loss view</span></div>
+                    <div class="included-feature"><span class="inc-dot"></span><span class="inc-text">Corp / VP
+                            executive trend dashboard</span></div>
+                    <div class="included-feature"><span class="inc-dot"></span><span class="inc-text">District
+                            Comparison Dashboard (add-on)</span></div>
+                </div>
+                <div class="included-group">
+                    <div class="included-group-title">Chain-Wide Analysis</div>
+                    <div class="included-feature"><span class="inc-dot"></span><span class="inc-text">Aggregated loss
+                            data across all stores</span></div>
+                    <div class="included-feature"><span class="inc-dot"></span><span class="inc-text">Configurable %
+                            loss threshold alerts by item</span></div>
+                    <div class="included-feature"><span class="inc-dot"></span><span class="inc-text">Top problem stores
+                            ranked by category</span></div>
+                    <div class="included-feature"><span class="inc-dot"></span><span class="inc-text">Full chain
+                            visibility across all districts</span></div>
+                </div>
+            </div>
+            <div class="roles-divider fade-up">Role-based access &mdash; configured during onboarding</div>
+            <div class="pricing-roles-grid fade-up">
+                <div class="pricing-role-card">
+                    <div class="pricing-role-name">Store Manager</div>
+                    <div class="pricing-role-scope">Store level</div>
+                    <div class="pricing-role-desc">Runs weekly reports, reviews loss by department, tracks improvement
+                        over time.</div>
+                </div>
+                <div class="pricing-role-card">
+                    <div class="pricing-role-name">District Manager</div>
+                    <div class="pricing-role-scope">District level</div>
+                    <div class="pricing-role-desc">Sees all stores ranked side by side, drills into any store&rsquo;s
+                        full report from one view.</div>
+                </div>
+                <div class="pricing-role-card">
+                    <div class="pricing-role-name">Category Manager</div>
+                    <div class="pricing-role-scope">Chain-wide items</div>
+                    <div class="pricing-role-desc">Views loss by item across all stores, identifies assortment and
+                        ordering patterns at scale.</div>
+                </div>
+                <div class="pricing-role-card">
+                    <div class="pricing-role-name">Corp / VP</div>
+                    <div class="pricing-role-scope">Full chain</div>
+                    <div class="pricing-role-desc">Full visibility across all districts, departments, and stores. All
+                        role dashboards included.</div>
+                </div>
+            </div>
+            <div class="contract-note fade-up"><strong>Annual agreements.</strong> ShrinkSmart is priced on an annual
+                basis, scaled to your chain size and the roles included. No setup fees. Contact us and we&rsquo;ll put
+                together a proposal built around your organization.</div>
+            <div class="pricing-cta fade-up">
+                <div>
+                    <div class="pricing-cta-head">Let&rsquo;s build the right configuration for your chain.</div>
+                    <div class="pricing-cta-body">Tell us your store count and which roles need access &mdash;
+                        we&rsquo;ll put together a proposal within 24 hours.</div>
+                </div><a href="#contact" class="pricing-cta-btn">Request a Proposal &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-intro fade-up">
+                    <div class="contact-intro-label">Get In Touch</div>
+                    <h2>Ready to See What ShrinkSmart Finds in Your Store?</h2>
+                    <p style="margin-bottom:2rem;">The best way to understand the value of ShrinkSmart is to see it
+                        work. Share a weekly loss data export from any of your perishable departments and we&rsquo;ll
+                        generate a full analysis report &mdash; at no charge &mdash; and walk through exactly what it
+                        reveals.</p>
+                    <div class="contact-promise">
+                        <div class="promise-item"><span class="promise-icon">&#10003;</span> No obligation, no sales
+                            pressure</div>
+                        <div class="promise-item"><span class="promise-icon">&#10003;</span> No commitment required
+                        </div>
+                        <div class="promise-item"><span class="promise-icon">&#10003;</span> Your data stays
+                            confidential</div>
+                        <div class="promise-item"><span class="promise-icon">&#10003;</span> Report delivered within 24
+                            hours</div>
+                        <div class="promise-item"><span class="promise-icon">&#10003;</span> Built by someone who works
+                            in the industry</div>
+                    </div>
+                    <div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--ice-mid);">
+                        <p style="font-size:.84rem;color:var(--txt-lt);margin-bottom:.4rem;">Direct contact</p>
+                        <p style="font-weight:600;color:var(--ink-mid);">Brandon Dix &mdash; Founder &amp; Developer</p>
+                        <a href="mailto:brandon@shrinksmart.net"
+                            style="color:var(--blue);font-weight:500;">brandon@shrinksmart.net</a>
+                        <p style="font-size:.84rem;color:var(--txt-lt);margin-top:.25rem;">Davidson County, North
+                            Carolina</p>
+                    </div>
+                </div>
+                <div class="contact-form fade-up fade-up-delay-2">
+                    <div class="form-title">Request Access or Free Analysis</div>
+                    <div class="form-row">
+                        <div class="form-group"><label for="fname">First Name</label><input type="text" id="fname"
+                                placeholder="Your first name"></div>
+                        <div class="form-group"><label for="lname">Last Name</label><input type="text" id="lname"
+                                placeholder="Your last name"></div>
+                    </div>
+                    <div class="form-group"><label for="email">Email Address</label><input type="email" id="email"
+                            placeholder="you@yourcompany.com"></div>
+                    <div class="form-group"><label for="company">Company / Chain Name</label><input type="text"
+                            id="company" placeholder="Your grocery chain or store name"></div>
+                    <div class="form-row">
+                        <div class="form-group"><label for="stores">Number of Stores</label><select id="stores">
+                                <option value="">Select range</option>
+                                <option>1 store</option>
+                                <option>2-5 stores</option>
+                                <option>6-20 stores</option>
+                                <option>21-50 stores</option>
+                                <option>50+ stores</option>
+                            </select></div>
+                        <div class="form-group"><label for="dept">Primary Department</label><select id="dept">
+                                <option value="">Select department</option>
+                                <option>Deli</option>
+                                <option>Meat / Seafood</option>
+                                <option>Bakery</option>
+                                <option>Produce</option>
+                                <option>All Departments</option>
+                            </select></div>
+                    </div>
+                    <div class="form-group"><label for="message">What would you like to know?</label><textarea
+                            id="message"
+                            placeholder="Tell us about your shrink challenges, what departments you're most concerned about, or ask anything about ShrinkSmart..."></textarea>
+                    </div>
+                    <button class="btn btn-primary form-submit" onclick="handleSubmit()">Send Request &rarr;</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <div class="nav-logo" style="margin-bottom:.75rem;">
+                        <div class="nav-logo-mark">S</div><span class="nav-logo-text">Shrink<span>Smart</span></span>
+                    </div>
+                    <p>Perishables Loss Management Platform. Built by a grocery professional, for grocery professionals.
+                        Every loss has a pattern. We find yours.</p>
+                </div>
+                <div>
+                    <div class="footer-col-title">Platform</div>
+                    <ul class="footer-links">
+                        <li><a href="#how">How It Works</a></li>
+                        <li><a href="#platform">See It Live</a></li>
+                        <li><a href="#reports">The Report</a></li>
+                        <li><a href="#security">Security</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="footer-col-title">Company</div>
+                    <ul class="footer-links">
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#roles">Who It's For</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="mailto:brandon@shrinksmart.net">brandon@shrinksmart.net</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="footer-col-title">Departments</div>
+                    <ul class="footer-links">
+                        <li><a href="#platform">Deli</a></li>
+                        <li><a href="#platform">Meat / Seafood</a></li>
+                        <li><a href="#platform">Bakery</a></li>
+                        <li><a href="#platform">Produce</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-copy">&copy; 2025&ndash;2026 ShrinkSmart LLC. All Rights Reserved. ShrinkSmart is
+                    protected by U.S. copyright and proprietary trade secret law.</div>
+                <div class="footer-tagline">Every Loss Has a Pattern. We Find Yours.</div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const deptData = {
+            deli: {
+                name: 'Deli Department',
+                sub: 'Typically the highest-loss perishable department. ShrinkSmart analyzes hot food, cold prepared foods, specialty cheese, prepared, and service case items.',
+                features: ['Hot foods analyzed for production efficiency and batch size alignment', 'Specialty cheese lines evaluated for over-assortment patterns', 'Prepared items assessed for par level alignment to actual demand', 'Time mandate items separated from ordering-related discards', 'Coding errors flagged automatically by loss rate anomaly detection'],
+                url: 'app.shrinksmart.net — Deli / Store #42',
+                title: 'Deli Department — Week Ending 03/22/2026',
+                warn: '⚠ Loss Rate Above Target',
+                kpis: [{ l: 'Total Loss', v: '$2,847', r: true, s: 'This week' }, { l: 'Loss Rate', v: '4.2%', r: true, s: '+1.1% vs LY' }, { l: 'Destroyed', v: '$1,940', r: true, s: '68% of loss' }, { l: 'Discounted', v: '$907', r: false, s: '32% of loss' }, { l: 'Annualized', v: '$148K', r: false, s: 'Projected' }],
+                tblTitle: 'Top Items — Destroyed (Ranked by Loss $)',
+                rows: [['Rotisserie Chicken', '$412', '18.4%', true, '▲ +6.2%', 'imm'], ['Mac &amp; Cheese (Hot Bar)', '$289', '—', true, '▲ +2.1%', 'imm'], ['Imported Brie 8oz', '$231', '41.2%', true, '▲ NEW', 'imm'], ['Chicken Salad Grab &amp; Go', '$187', '12.8%', false, '▼ -1.3%', 'high'], ['Mashed Potatoes (Hot Bar)', '$143', '—', true, '▲ +0.8%', 'high'], ['Fresh Pasta Trio', '$118', '28.9%', false, '▼ -2.1%', 'mod']],
+                tabs: ['Executive Summary', 'Destroyed', 'Discounted', 'Dual Problems', 'Zero-Sales', 'Optimize →']
+            },
+            meat: {
+                name: 'Meat / Seafood Departments',
+                sub: 'Two of the highest-risk perishable categories under one analytical engine. ShrinkSmart focuses on distroyed items and discounted items — the two real loss drivers across both departments.',
+                features: ['Beef, pork, and poultry ranked by loss dollar — ordering problems surface immediately', 'Items in both destroyed and discounted lists flagged as systemic ordering problems', 'Zero-sales items surfaced for immediate removal from order guide', 'Similar cuts and grades grouped to identify SKU rationalization opportunities', 'Price reduction timing based on bake schedule and shelf life window'],
+                url: 'app.shrinksmart.net — Meat/Seafood / Store #42',
+                title: 'Meat / Seafood — Week Ending 03/22/2026',
+                warn: '⚠ Loss Rate Above Target',
+                kpis: [{ l: 'Total Loss', v: '$3,241', r: true, s: 'This week' }, { l: 'Loss Rate', v: '3.8%', r: true, s: '+0.9% vs LY' }, { l: 'Destroyed', v: '$2,180', r: true, s: '67% of loss' }, { l: 'Discounted', v: '$1,061', r: false, s: '33% of loss' }, { l: 'Annualized', v: '$168K', r: false, s: 'Projected' }],
+                tblTitle: 'Top Items — Destroyed (Ranked by Loss $)',
+                rows: [['Boneless Ribeye', '$534', '22.1%', true, '▲ +5.3%', 'imm'], ['80/20 Ground Beef 3lb', '$318', '14.7%', true, '▲ +1.9%', 'imm'], ['Pork Tenderloin', '$247', '19.3%', true, '▲ NEW', 'imm'], ['Baby Back Ribs Full Rack', '$198', '11.2%', false, '▼ -0.8%', 'high'], ['Chicken Thighs Bone-In 4pk', '$156', '8.9%', true, '▲ +2.1%', 'high'], ['Fresh Cod Fillet', '$134', '31.4%', false, '▼ -1.5%', 'mod']],
+                tabs: ['Executive Summary', 'Destroyed', 'Discounted', 'Dual Problems', 'Zero-Sales', 'Optimize →']
+            },
+            bakery: {
+                name: 'Bakery Department',
+                sub: 'Fresh bakery products have predictable loss windows. ShrinkSmart identifies over-baked categories, assortment overlap, and items that should shift to a made-to-order or bake-less model.',
+                features: ['Over-baked categories identified by time-of-day discard patterns', 'Artisan bread and specialty SKU overlap flagged for consolidation', 'Made-to-order candidates identified by shelf life and velocity data', 'Morning vs. afternoon loss windows analyzed for batch size guidance', 'Price reduction timing based on bake schedule and shelf life window'],
+                url: 'app.shrinksmart.net — Bakery / Store #42',
+                title: 'Bakery Department — Week Ending 03/22/2026',
+                warn: '⚠ High Loss Rate — 5.1%',
+                kpis: [{ l: 'Total Loss', v: '$1,243', r: true, s: 'This week' }, { l: 'Loss Rate', v: '5.1%', r: true, s: '+1.4% vs LY' }, { l: 'Destroyed', v: '$987', r: true, s: '79% of loss' }, { l: 'Discounted', v: '$256', r: false, s: '21% of loss' }, { l: 'Annualized', v: '$65K', r: false, s: 'Projected' }],
+                tblTitle: 'Top Items — Destroyed (Ranked by Loss $)',
+                rows: [['Artisan Sourdough Boule', '$198', '24.7%', true, '▲ +3.1%', 'imm'], ['Croissants 6-pack', '$167', '19.2%', true, '▲ +2.4%', 'imm'], ['French Baguette', '$143', '21.8%', true, '▲ +1.6%', 'high'], ['Cinnamon Raisin Loaf', '$112', '17.4%', false, '▼ -0.9%', 'high'], ['Blueberry Muffins 4-pack', '$89', '13.1%', true, '▲ +0.7%', 'mod'], ['Focaccia Rosemary 10oz', '$74', '28.3%', true, '▲ NEW', 'mod']],
+                tabs: ['Executive Summary', 'Destroyed', 'Discounted', 'Dual Problems', 'Bake Windows', 'Optimize →']
+            },
+            produce: {
+                name: 'Produce Department',
+                sub: 'Produce shrink is a different challenge — driven by quality degradation, vendor condition, and rotation failures. ShrinkSmart analyzes discounted and distoryed items separately to reflect how produce loss actually works.',
+                features: ['Destroyed items and price reductions tracked separately — produce requires both lenses', 'Top loss items ranked by dollar to focus action on the highest-cost problem first', 'Zero-sales items flagged for immediate removal from order guide', 'Dual problem items identified — appearing in both written-off and price-reduced lists', 'Optimization plan with prioritized, plain-English actions for the department manager'],
+                url: 'app.shrinksmart.net — Produce / Store #42',
+                title: 'Produce Department — Week Ending 03/22/2026',
+                warn: '⚠ High Loss Rate — 6.3%',
+                kpis: [{ l: 'Total Loss', v: '$1,876', r: true, s: 'This week' }, { l: 'Loss Rate', v: '6.3%', r: true, s: '+1.8% vs LY' }, { l: 'Destroyed', v: '$1,432', r: true, s: '76% of loss' }, { l: 'Discounted', v: '$444', r: false, s: '24% of loss' }, { l: 'Annualized', v: '$98K', r: false, s: 'Projected' }],
+                tblTitle: 'Top Items — Destroyed (Ranked by Loss $)',
+                rows: [['Strawberries 1lb clamshell', '$287', '31.2%', true, '▲ +4.8%', 'imm'], ['Bagged Salad Mix 5oz', '$243', '18.7%', true, '▲ +2.3%', 'imm'], ['Raspberries Pint', '$198', '44.1%', true, '▲ +6.1%', 'imm'], ['Baby Spinach 5oz bag', '$167', '22.4%', false, '▼ -1.1%', 'high'], ['Grape Tomatoes Pint', '$134', '15.9%', true, '▲ +1.2%', 'high'], ['Fresh Herbs Multipack', '$98', '38.7%', true, '▲ NEW', 'mod']],
+                tabs: ['Executive Summary', 'Destroyed', 'Discounted', 'Dual Problems', 'Zero-Sales', 'Optimize →']
+            }
+        };
+        const pillStyle = { imm: 'background:rgba(139,32,32,.28);color:#EF9A9A', high: 'background:rgba(200,134,10,.2);color:#FFCC80', mod: 'background:rgba(45,156,219,.15);color:#5BB8F0' };
+
+        function renderDept(d) {
+            document.getElementById('pl-name').textContent = d.name;
+            document.getElementById('pl-sub').textContent = d.sub;
+            document.getElementById('pl-url').textContent = d.url;
+            document.getElementById('pl-title').textContent = d.title;
+            document.getElementById('pl-warn').textContent = d.warn;
+            document.getElementById('pl-tbl-title').textContent = d.tblTitle;
+            document.getElementById('pl-features').innerHTML = d.features.map(f =>
+                '<li><span class="pl-check">✓</span>' + f + '</li>'
+            ).join('');
+            document.getElementById('pl-kpis').innerHTML = d.kpis.map(k =>
+                '<div class="pm-kpi-card"><div class="pm-kpi-label">' + k.l + '</div>' +
+                '<div class="pm-kpi-val' + (k.r ? ' red' : '') + '">' + k.v + '</div>' +
+                '<div class="pm-kpi-sub">' + k.s + '</div></div>'
+            ).join('');
+            document.getElementById('pl-thead').innerHTML =
+                ['Item Name', 'Loss $', 'Loss %', 'vs LY', 'Priority'].map(h =>
+                    '<th style="font-family:DM Mono,monospace;font-size:.58rem;color:rgba(255,255,255,.22);letter-spacing:.06em;text-transform:uppercase;padding:.35rem .5rem;border-bottom:1px solid rgba(255,255,255,.06);text-align:left">' + h + '</th>'
+                ).join('');
+            document.getElementById('pl-tbody').innerHTML = d.rows.map(r =>
+                '<tr style="border-bottom:1px solid rgba(255,255,255,.04)">' +
+                '<td style="padding:.45rem .5rem;font-size:.75rem;color:rgba(255,255,255,.84);font-weight:500">' + r[0] + '</td>' +
+                '<td style="padding:.45rem .5rem;font-size:.75rem;font-family:DM Mono,monospace;color:#EF9A9A;font-weight:600;text-align:right">' + r[1] + '</td>' +
+                '<td style="padding:.45rem .5rem;font-size:.75rem;color:rgba(255,255,255,.55);text-align:right">' + r[2] + '</td>' +
+                '<td style="padding:.45rem .5rem;font-size:.75rem;color:' + (r[3] ? '#EF9A9A' : '#80CBC4') + ';text-align:right">' + r[4] + '</td>' +
+                '<td style="padding:.45rem .5rem;text-align:right"><span style="font-family:DM Mono,monospace;font-size:.57rem;padding:.14rem .45rem;border-radius:20px;font-weight:600;' + pillStyle[r[5]] + '">' + r[5].toUpperCase() + '</span></td>' +
+                '</tr>'
+            ).join('');
+            document.getElementById('pl-tabs').innerHTML = d.tabs.map((t, i) =>
+                '<div style="font-family:DM Mono,monospace;font-size:.6rem;padding:.28rem .7rem;border-radius:5px;letter-spacing:.04em;' +
+                (i === 0 ? 'background:rgba(45,156,219,.15);color:#5BB8F0;border:1px solid rgba(45,156,219,.3)' : 'background:rgba(255,255,255,.04);color:rgba(255,255,255,.3);border:1px solid rgba(255,255,255,.07)') +
+                '">' + t + '</div>'
+            ).join('');
+        }
+
+        function switchDept(dept, btn) {
+            document.querySelectorAll('.ptab').forEach(t => t.classList.remove('active'));
+            btn.classList.add('active');
+            const left = document.getElementById('pl-left');
+            const right = document.getElementById('pl-right');
+            [left, right].forEach(el => { el.style.opacity = '0'; el.style.transform = 'translateY(8px)'; });
+            setTimeout(function () {
+                renderDept(deptData[dept]);
+                [left, right].forEach(el => { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; });
+            }, 200);
+        }
+
+        renderDept(deptData.deli);
+
+        const observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.08 });
+        document.querySelectorAll('.fade-up').forEach(function (el) { observer.observe(el); });
+
+        const barObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                if (e.isIntersecting) {
+                    e.target.querySelectorAll('.dept-fill').forEach(function (bar) { bar.style.width = bar.dataset.w || '0%'; });
+                }
+            });
+        }, { threshold: 0.3 });
+        var lv = document.querySelector('.loss-visual');
+        if (lv) barObserver.observe(lv);
+
+        function toggleMenu() {
+            var links = document.querySelector('.nav-links');
+            var cta = document.querySelector('.nav-cta');
+            if (links.style.display === 'flex') {
+                links.style.display = 'none'; cta.style.display = 'none';
+            } else {
+                links.style.cssText = 'display:flex;flex-direction:column;position:fixed;top:70px;left:0;right:0;background:rgba(11,23,36,.98);padding:2rem;gap:1.5rem;z-index:99;';
+                cta.style.cssText = 'display:flex;flex-direction:column;position:fixed;top:calc(70px + 240px);left:0;right:0;background:rgba(11,23,36,.98);padding:1.5rem 2rem;z-index:99;';
+            }
+        }
+
+        window.addEventListener('scroll', function () {
+            document.getElementById('navbar').style.boxShadow = window.scrollY > 60 ? '0 4px 28px rgba(0,0,0,.4)' : 'none';
+        });
+
+        async function handleSubmit() {
+            var fname = document.getElementById('fname').value.trim();
+            var lname = document.getElementById('lname').value.trim();
+            var email = document.getElementById('email').value.trim();
+            var company = document.getElementById('company').value.trim();
+            var stores = document.getElementById('stores').value;
+            var dept = document.getElementById('dept').value;
+            var message = document.getElementById('message').value.trim();
+            if (!fname || !email) { alert('Please fill in your name and email to continue.'); return; }
+            var btn = document.querySelector('.form-submit');
+            btn.textContent = 'Sending…'; btn.disabled = true; btn.style.opacity = '0.7';
+            try {
+                var res = await fetch('https://formspree.io/f/xgopkepn', {
+                    method: 'POST', headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name: (fname + ' ' + lname).trim(), email: email, company: company, stores: stores, department: dept, message: message })
+                });
+                if (res.ok) {
+                    btn.textContent = '✓ Request Sent — Brandon will be in touch within 24 hours';
+                    btn.style.background = '#1A9E5C'; btn.style.opacity = '1';
+                } else {
+                    btn.textContent = 'Something went wrong — please email brandon@shrinksmart.net';
+                    btn.style.background = '#8B2020'; btn.style.opacity = '1'; btn.disabled = false;
+                }
+            } catch (e) {
+                btn.textContent = 'Something went wrong — please email brandon@shrinksmart.net';
+                btn.style.background = '#8B2020'; btn.style.opacity = '1'; btn.disabled = false;
+            }
+        }
+
+        var ticker = document.getElementById('ticker');
+        ticker.innerHTML += ticker.innerHTML;
+    </script>
+</body>
+
+</html>
