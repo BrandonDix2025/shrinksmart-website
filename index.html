@@ -2115,41 +2115,6 @@
 </head>
 
 <body>
-    <!-- PREVIEW GATE -->
-<div id="ss-gate" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#0b0f14;z-index:99999;display:flex;align-items:center;justify-content:center;font-family:sans-serif;">
-  <div style="text-align:center;max-width:400px;padding:48px 40px;background:#111720;border:1px solid #1e2a38;border-radius:16px;">
-    <div style="font-size:36px;font-weight:900;color:#22c55e;letter-spacing:.08em;margin-bottom:6px;">ShrinkSmart</div>
-    <div style="font-size:11px;color:#64748b;letter-spacing:.12em;text-transform:uppercase;margin-bottom:32px;">Private Preview — Friends &amp; Family</div>
-    <input id="ss-pw" type="password" placeholder="Enter preview password"
-      style="width:100%;padding:13px 16px;background:#0b0f14;border:1px solid #1e2a38;border-radius:8px;color:#e2e8f0;font-size:15px;text-align:center;outline:none;margin-bottom:12px;letter-spacing:.05em;">
-    <button onclick="ssCheck()"
-      style="width:100%;padding:13px;background:#22c55e;color:#000;border:none;border-radius:8px;font-weight:800;font-size:14px;cursor:pointer;letter-spacing:.06em;text-transform:uppercase;">
-      View Site →
-    </button>
-    <div id="ss-err" style="color:#ef4444;font-size:12px;margin-top:12px;min-height:18px;"></div>
-  </div>
-</div>
-<script>
-  (function(){
-    if(sessionStorage.getItem('ss_preview')==='1'){
-      document.getElementById('ss-gate').style.display='none';
-    }
-    document.getElementById('ss-pw').addEventListener('keydown',function(e){
-      if(e.key==='Enter') ssCheck();
-    });
-  })();
-  function ssCheck(){
-    if(document.getElementById('ss-pw').value==='Igotthis70!'){
-      sessionStorage.setItem('ss_preview','1');
-      document.getElementById('ss-gate').style.display='none';
-    } else {
-      document.getElementById('ss-err').textContent='Incorrect password. Try again.';
-      document.getElementById('ss-pw').value='';
-      document.getElementById('ss-pw').focus();
-    }
-  }
-</script>
-```
     <nav id="navbar">
         <div class="nav-inner">
             <a href="#" class="nav-logo">
@@ -3053,7 +3018,7 @@
             },
             meat: {
                 name: 'Meat / Seafood Departments',
-                sub: 'Two of the highest-risk perishable categories under one analytical engine. ShrinkSmart focuses on distroyed items and discounted items — the two real loss drivers across both departments.',
+                sub: 'Two of the highest-risk perishable categories under one analytical engine. ShrinkSmart focuses on destroyed items and discounted items — the two real loss drivers across both departments.',
                 features: ['Beef, pork, and poultry ranked by loss dollar — ordering problems surface immediately', 'Items in both destroyed and discounted lists flagged as systemic ordering problems', 'Zero-sales items surfaced for immediate removal from order guide', 'Similar cuts and grades grouped to identify SKU rationalization opportunities', 'Price reduction timing based on bake schedule and shelf life window'],
                 url: 'app.shrinksmart.net — Meat/Seafood / Store #42',
                 title: 'Meat / Seafood — Week Ending 03/22/2026',
@@ -3077,7 +3042,7 @@
             },
             produce: {
                 name: 'Produce Department',
-                sub: 'Produce shrink is a different challenge — driven by quality degradation, vendor condition, and rotation failures. ShrinkSmart analyzes discounted and distoryed items separately to reflect how produce loss actually works.',
+                sub: 'Produce shrink is a different challenge — driven by quality degradation, vendor condition, and rotation failures. ShrinkSmart analyzes discounted and destroyed items separately to reflect how produce loss actually works.',
                 features: ['Destroyed items and price reductions tracked separately — produce requires both lenses', 'Top loss items ranked by dollar to focus action on the highest-cost problem first', 'Zero-sales items flagged for immediate removal from order guide', 'Dual problem items identified — appearing in both written-off and price-reduced lists', 'Optimization plan with prioritized, plain-English actions for the department manager'],
                 url: 'app.shrinksmart.net — Produce / Store #42',
                 title: 'Produce Department — Week Ending 03/22/2026',
