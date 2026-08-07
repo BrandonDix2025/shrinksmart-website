@@ -1,49 +1,330 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex, nofollow">
-  <title>ShrinkSmart</title>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #0B1628;
-      color: #E8EDF3;
-    }
-    .wrap {
-      min-height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 24px;
-      box-sizing: border-box;
-    }
-    h1 {
-      font-size: 28px;
-      font-weight: 700;
-      margin: 0 0 12px 0;
-      letter-spacing: 0.5px;
-    }
-    p {
-      font-size: 14px;
-      color: #7F9FCC;
-      margin: 0;
-      max-width: 420px;
-      line-height: 1.6;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>ShrinkSmart · Enterprise Perishables-Loss Platform</title>
+    <meta name="description"
+        content="ShrinkSmart is an enterprise perishables-loss platform for multi-store grocery retail chains. Request a demo.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #0A1424;
+            --blue: #2D9CDB;
+            --blue-lt: #6FC0F2;
+            --btn: #1C7CB5;
+            --btn-hover: #2088C6;
+            --line: rgba(255, 255, 255, .10);
+            --muted: rgba(255, 255, 255, .60);
+            --soft: rgba(255, 255, 255, .74);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: #fff;
+            background:
+                radial-gradient(1200px 720px at 50% -18%, rgba(45, 156, 219, .18), transparent 58%),
+                radial-gradient(900px 620px at 92% 118%, rgba(45, 156, 219, .10), transparent 55%),
+                var(--ink);
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+            -webkit-font-smoothing: antialiased;
+            position: relative;
+        }
+
+        /* faint grid for depth */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, .022) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, .022) 1px, transparent 1px);
+            background-size: 64px 64px;
+            -webkit-mask-image: radial-gradient(circle at 50% 38%, #000 0%, transparent 72%);
+            mask-image: radial-gradient(circle at 50% 38%, #000 0%, transparent 72%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* top accent hairline */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--blue) 35%, var(--blue-lt) 50%, var(--blue) 65%, transparent);
+            opacity: .8;
+            z-index: 3;
+        }
+
+        header,
+        .wrap,
+        footer {
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.6rem clamp(1.4rem, 4vw, 3rem);
+        }
+
+        .lockup {
+            display: inline-flex;
+            align-items: center;
+            gap: .7rem;
+        }
+
+        .lockup img {
+            width: 40px;
+            height: 40px;
+            border-radius: 9px;
+            display: block;
+        }
+
+        .lockup .name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: -.01em;
+        }
+
+        .lockup .name span {
+            color: var(--blue);
+        }
+
+        .signin {
+            display: inline-flex;
+            align-items: center;
+            gap: .45rem;
+            font-size: .85rem;
+            font-weight: 500;
+            color: #fff;
+            text-decoration: none;
+            padding: .6rem 1.15rem;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, .03);
+            transition: border-color .2s, background .2s;
+            white-space: nowrap;
+        }
+
+        .signin:hover {
+            border-color: rgba(111, 192, 242, .55);
+            background: rgba(45, 156, 219, .10);
+        }
+
+        .wrap {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem clamp(1.4rem, 4vw, 2rem) 4rem;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 720px;
+            text-align: center;
+        }
+
+        .kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: .7rem;
+            font-size: .72rem;
+            font-weight: 600;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--blue-lt);
+            margin-bottom: 2rem;
+        }
+
+        .kicker::before {
+            content: "";
+            width: 28px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--blue-lt));
+        }
+
+        .kicker::after {
+            content: "";
+            width: 28px;
+            height: 1px;
+            background: linear-gradient(90deg, var(--blue-lt), transparent);
+        }
+
+        h1 {
+            font-size: clamp(2.1rem, 5.6vw, 3.4rem);
+            font-weight: 800;
+            line-height: 1.08;
+            letter-spacing: -.025em;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 .accent {
+            background: linear-gradient(100deg, var(--blue), var(--blue-lt));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+
+        .sub {
+            font-size: clamp(1rem, 2.2vw, 1.12rem);
+            line-height: 1.65;
+            color: var(--soft);
+            max-width: 500px;
+            margin: 0 auto 2.6rem;
+        }
+
+        .cta {
+            display: inline-flex;
+            align-items: center;
+            gap: .55rem;
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 1.02rem;
+            color: #fff;
+            text-decoration: none;
+            padding: 1.05rem 2.5rem;
+            border-radius: 9px;
+            background: var(--btn);
+            box-shadow: 0 10px 34px rgba(45, 156, 219, .34);
+            transition: background .2s, transform .2s, box-shadow .2s;
+        }
+
+        .cta:hover {
+            background: var(--btn-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 40px rgba(45, 156, 219, .42);
+        }
+
+        .cta .arrow {
+            transition: transform .2s;
+        }
+
+        .cta:hover .arrow {
+            transform: translateX(3px);
+        }
+
+        .trust {
+            margin-top: 2.4rem;
+            display: flex;
+            gap: 1.4rem;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            font-size: .8rem;
+            color: var(--muted);
+        }
+
+        .trust span {
+            display: inline-flex;
+            align-items: center;
+            gap: .45rem;
+        }
+
+        .trust .dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--blue);
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.6rem 24px 2.4rem;
+            font-size: .78rem;
+            color: rgba(255, 255, 255, .5);
+            line-height: 1.9;
+        }
+
+        footer a {
+            color: rgba(255, 255, 255, .68);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--blue-lt);
+        }
+
+        a:focus-visible {
+            outline: 3px solid var(--blue-lt);
+            outline-offset: 3px;
+            border-radius: 6px;
+        }
+
+        @media (max-width: 480px) {
+            .lockup .name {
+                font-size: 1.15rem;
+            }
+
+            .trust {
+                gap: .5rem 1.2rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                transition-duration: .001ms !important;
+                animation-duration: .001ms !important;
+            }
+        }
+    </style>
 </head>
+
 <body>
-  <div class="wrap">
-    <div>
-      <h1>ShrinkSmart</h1>
-      <p>Site under construction. Please check back soon.</p>
-    </div>
-  </div>
+    <header>
+        <div class="lockup">
+            <img src="logo.svg" alt="">
+            <span class="name">Shrink<span>Smart</span></span>
+        </div>
+        <a class="signin" href="https://app.shrinksmart.net">Client Sign In &rarr;</a>
+    </header>
+
+    <main class="wrap">
+        <div class="card">
+            <div class="kicker">Enterprise Perishables-Loss Platform</div>
+
+            <h1>Perishable loss, made visible<br><span class="accent">across every store.</span></h1>
+
+            <p class="sub">Enterprise loss intelligence for multi-store grocery retail chains,
+                built by a grocery operator.</p>
+
+            <a class="cta" href="mailto:brandon@shrinksmart.net?subject=ShrinkSmart%20Demo%20Request">
+                Request a Demo <span class="arrow">&rarr;</span>
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <a href="mailto:brandon@shrinksmart.net">brandon@shrinksmart.net</a><br>
+        &copy; 2025-2026 ShrinkSmart LLC. All rights reserved.
+    </footer>
 </body>
+
 </html>
